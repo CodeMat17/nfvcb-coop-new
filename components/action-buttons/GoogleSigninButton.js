@@ -16,7 +16,7 @@ const GoogleSigninButton = () => {
     <div>
       <button
         onClick={signInWithGoogle}
-        className='w-full py-1.5 flex items-center justify-center gap-x-3 rounded-xl bg-purple-800 text-white'>
+        className='w-full py-1.5 flex items-center justify-center gap-x-3 rounded-xl bg-purple-900 text-white'>
         <span className="bg-white rounded-full p-1">
           <FcGoogle className='text-2xl' />
         </span>{" "}

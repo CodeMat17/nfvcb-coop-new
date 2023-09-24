@@ -120,7 +120,7 @@ const LoanCard = () => {
   return (
     <div>
       <Toaster />
-      <h1 className='text-center text-2xl text-purple-700'>
+      <h1 className='text-center text-2xl text-purple-900'>
         Enter loan details
       </h1>
 
@@ -193,7 +193,7 @@ const LoanCard = () => {
         <div className='py-4'>
           <button
             onClick={loanApplication}
-            className='w-full bg-purple-300 text-purple-800 py-3 rounded-xl disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-500'
+            className='w-full bg-purple-300 text-purple-900 py-3 rounded-xl disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-500'
             disabled={ippis.length < 9}>
             {waiting ? (
               <div className='flex items-center justify-center space-x-3'>

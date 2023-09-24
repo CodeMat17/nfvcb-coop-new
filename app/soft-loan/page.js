@@ -14,9 +14,7 @@ const SoftLoan = () => {
   return (
     <div className='px-4 py-12 min-h-screen'>
       {loanCard ? (
-      
-          <LoanCard />
-      
+        <LoanCard />
       ) : (
         <div>
           <h1 className='text-red-600 text-2xl text-center'>
@@ -26,28 +24,14 @@ const SoftLoan = () => {
           <div className='pt-6 flex flex-col justify-center max-w-lg mx-auto px-4'>
             <ul className='antialiased space-y-3 list-disc list-outside'>
               <li className='leading-5'>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor
-                ratione quos ab?
+                5% of loan amount will be deducted from source as commission.
               </li>
               <li className='leading-5'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus,
-                nemo.
+                Loan payback duration is 3 mount starting from the date of
+                approval.
               </li>
               <li className='leading-5'>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor
-                ratione quos ab?
-              </li>
-              <li className='leading-5'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus,
-                nemo.
-              </li>
-              <li className='leading-5'>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor
-                ratione quos ab?
-              </li>
-              <li className='leading-5'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus,
-                nemo.
+                Defaulters will have the loan amount taken from their salary of the subsequent month.
               </li>
             </ul>
 
@@ -73,13 +57,13 @@ const SoftLoan = () => {
               {enabled ? (
                 <button
                   onClick={() => setLoanCard(!loanCard)}
-                  className='transition-colors duration-500 ease-in-out bg-purple-900 hover:bg-purple-700 text-white w-full sm:w-1/2 p-3 shadow-md rounded-xl'>
+                  className='tracking-wider transition-colors duration-500 ease-in-out bg-purple-900 hover:bg-purple-700 text-white w-full sm:w-1/2 p-3 shadow-md rounded-xl'>
                   Apply
                 </button>
               ) : (
                 <button
                   onClick={() => router.back()}
-                  className='transition-colors duration-500 ease-in-out bg-red-100 text-red-600 hover:bg-red-200 w-full sm:w-1/2 p-3 border shadow-md rounded-xl'>
+                  className='tracking-wider transition-colors duration-500 ease-in-out bg-red-100 text-red-600 hover:bg-red-200 w-full sm:w-1/2 p-3 border shadow-md rounded-xl'>
                   Discontinue
                 </button>
               )}

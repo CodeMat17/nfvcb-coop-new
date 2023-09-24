@@ -39,7 +39,7 @@ const HavHeader = () => {
   }, [getProfile]);
 
   return (
-    <div className='bg-purple-950 px-4 py-2 sticky top-0 z-50'>
+    <div className='bg-purple-950 px-4 py-3 sticky top-0 z-50'>
       <div className=' flex items-center justify-between max-w-5xl mx-auto text-white'>
         <LogoComponent classnames='w-12 h-12' />
         {is_admin && (

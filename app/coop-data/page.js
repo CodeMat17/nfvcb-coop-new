@@ -67,26 +67,28 @@ const DataPage = () => {
   }
   return (
     <div className='w-full px-4 py-12 min-h-screen'>
-      <h1 className='text-2xl text-center font-medium tracking-wider text-purple-700'>
+      <h1 className='text-2xl text-center font-medium tracking-wider text-purple-900'>
         Hello,
       </h1>
 
       <div className='max-w-md mx-auto'>
         {confirmed ? (
           <div>
-            <div className='border mt-6 pt-2 pb-1 px-1 bg-purple-100 rounded-xl shadow-md'>
-              <p className='text-center'>Cooperator</p>
+            <div className='border mt-6 pt-2 pb-1 px-1 bg-purple-600 rounded-xl shadow-md'>
+              <p className='text-center text-white tracking-widest'>
+                Cooperator
+              </p>
               <div className='pr-2 py-2 flex items-center space-x-2 bg-purple-50 rounded-b-xl overflow-hidden mt-1'>
                 <div className='max-w-[20%] '>
-                  <IoMdContact size={70} className='text-purple-300' />
+                  <IoMdContact size={70} className='text-purple-900' />
                 </div>
 
                 <div className='max-w-[80%] '>
-                  <h2 className=' text-xl block truncate text-purple-800'>
+                  <h2 className=' text-xl block truncate text-purple-900'>
                     {username}
                   </h2>
 
-                  <div className='text-purple-500/70 leading-4'>
+                  <div className='text-purple-600 leading-4'>
                     <p>{station}</p>
                   </div>
                 </div>
@@ -96,14 +98,16 @@ const DataPage = () => {
             <div className='mt-6'>
               <p className='text-sm'>
                 Date joined:
-                {dayjs(joined_on).format("MMM, DD, YYYY")}
+                <span className='pl-1'>
+                  {dayjs(joined_on).format("MMM, DD, YYYY")}
+                </span>
               </p>
 
               <div className='py-4'>
                 <p className='text-lg font-medium'>Total Contributions</p>
                 <div className='flex justify-start  '>
                   <div className='p-1 shadow-md border rounded-full bg-purple-100'>
-                    <div className='text-xl px-4 py-1.5 shadow-md rounded-full bg-pink-200 text-pink-800'>
+                    <div className='text-xl font-bold tracking-wide px-4 py-2 shadow-md rounded-full bg-pink-200 text-pink-800'>
                       <FormatedCurrency amount={total_contributions} />
                     </div>
                   </div>
@@ -111,7 +115,7 @@ const DataPage = () => {
                 <div className='mt-6'>
                   <p>
                     Current monthly contribution:
-                    <span className='text-purple-600 font-medium'>
+                    <span className='font-bold'>
                       <FormatedCurrency amount={monthly_contribution} />
                     </span>
                   </p>
@@ -123,12 +127,16 @@ const DataPage = () => {
               <p className='text-lg font-medium'>
                 Loan Status:{" "}
                 {loan_status === "active" && (
-                  <span className='text-pink-600'>ACTIVE</span>
+                  <span className='text-pink-600 font-medium'>ACTIVE</span>
                 )}
                 {loan_status === "processing" && (
-                  <span className='text-yellow-600'>PROCESSING</span>
+                  <span className='text-yellow-600 font-medium'>
+                    PROCESSING
+                  </span>
                 )}
-                {loan_status === "inactive" && <span>INACTIVE</span>}
+                {loan_status === "inactive" && (
+                  <span className=' font-medium'>INACTIVE</span>
+                )}
               </p>
               {loan_status === "inactive" && (
                 <p>Soft loan eligibility: Yes - ₦50,000</p>
@@ -160,7 +168,7 @@ const DataPage = () => {
             {loan_status === "inactive" && (
               <div className='py-8 w-full'>
                 <Link href='/soft-loan'>
-                  <p className='w-full text-center p-3 transition-colors duration-500 bg-purple-800 hover:bg-purple-700 rounded-xl text-white'>
+                  <p className='w-full text-center p-3 transition-colors duration-500 bg-purple-900 hover:bg-purple-700 rounded-xl text-white'>
                     APPLY FOR SOFT LOAN
                   </p>
                 </Link>
@@ -170,8 +178,10 @@ const DataPage = () => {
         ) : (
           <div className='py-8'>
             <h1 className='text-center'>
-              <span className='text-xl font-medium '>{username}</span>, kindly
-              wait for membership confirmation and data upload.
+              <span className='text-xl text-purple-900 font-medium '>
+                {username}
+              </span>
+              , kindly wait for membership confirmation and data upload.
             </h1>
           </div>
         )}

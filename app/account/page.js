@@ -57,7 +57,7 @@ const AccountPage = () => {
         <div>
           <AiOutlineLoading className='text-3xl text-purple-700 font-bold animate-spin' />
         </div>
-        <p className='text-purple-400'>Please wait</p>
+        <p className='text-purple-500'>Please wait</p>
       </div>
     );
   }
@@ -65,10 +65,10 @@ const AccountPage = () => {
   return (
     <div className='px-4 py-12 min-h-screen w-full'>
       <div>
-        <h1 className='text-2xl text-center text-purple-800'>
+        <h1 className='text-xl text-center text-purple-900'>
           Welcome, {email}
         </h1>
-        <p className='text-center text-sm text-purple-800/70'>
+        <p className='text-center text-sm text-purple-700'>
           Kindly fill the form below to complete your registration.
         </p>
       </div>

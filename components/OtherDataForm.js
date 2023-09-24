@@ -91,7 +91,7 @@ const OtherDataForm = ({ user_id }) => {
   }
 
   return (
-    <div className='bg-purple-100 rounded-xl p-4 flex flex-col justify-center shadow-md space-y-2 w-full max-w-xs mx-auto'>
+    <div className='bg-purple-300 rounded-xl p-4 flex flex-col justify-center space-y-2 w-full max-w-xs mx-auto'>
       <Toaster />
       <p className='text-xs text-red-500 text-center'>{errorMsg}</p>
       {/* <pre>{JSON.stringify(user.id, null, 2)}</pre> */}
@@ -125,10 +125,10 @@ const OtherDataForm = ({ user_id }) => {
         placeholder='Enter your IPPIS no.'
         className='px-3 py-2 rounded-xl'
       />
-      <div className='py-2'>
+      <div className='pt-2'>
         <button
           onClick={updateProfile}
-          className='bg-purple-800 tracking-wider transition-colors duration-500 hover:bg-purple-700 w-full py-3 rounded-xl text-white'>
+          className='bg-purple-900 tracking-wider transition-colors duration-500 hover:bg-purple-700 w-full py-3 rounded-xl text-white'>
           {loading ? (
             <div className='flex items-center justify-center gap-x-4'>
               <AiOutlineLoading className='text-2xl font-medium animate-spin' />{" "}
