@@ -93,7 +93,7 @@ const Signup = ({result}) => {
           placeholder='Email '
           className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-xl py-2 pl-10 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
         />
-        <HiMail className='absolute top-2.5 left-3 text-2xl text-purple-600' />
+        <HiMail className='absolute top-2.5 left-3 text-xl text-purple-600' />
         <span className='hidden text-xs text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block'>
           Please enter a valid email address
         </span>
@@ -111,7 +111,7 @@ const Signup = ({result}) => {
           placeholder='Password '
           className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-xl py-2 pl-10 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
         />
-        <HiMiniLockClosed className='absolute top-3 left-3 text-xl text-purple-600' />
+        <HiMiniLockClosed className='absolute top-3 left-3 text-lg text-purple-600' />
         <span className='hidden text-xs text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block'>
           Password must be at least 6 chars long
         </span>

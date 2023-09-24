@@ -5,6 +5,7 @@ import { useState } from "react";
 import GoogleSigninButton from "../action-buttons/GoogleSigninButton";
 import Signin from "./Signin";
 import Signup from "./Signup";
+import LogoComponent from "../LogoComponent";
 
 const LoginPage = () => {
   const [signUp, setSignUp] = useState(false);
@@ -24,8 +25,9 @@ const LoginPage = () => {
   return (
     <div className=''>
       <div className='flex flex-col justify-center items-center'>
-        <h1 className='text-4xl text-center font-medium text-purple-800'>
-          NFVCB Coop.
+       <LogoComponent classnames='w-20 h-20' />
+        <h1 className='text-3xl text-center font-medium text-purple-800'>
+          NFVCB COOP.
         </h1>
         <p className='text-center text-2xl text-purple-500 font-medium'>
           {signUp ? "signup" : "signin"}

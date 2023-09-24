@@ -6,6 +6,7 @@ import { cookies } from "next/headers";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: "NFVCB Coop",
