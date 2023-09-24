@@ -38,9 +38,9 @@ const LoginPage = () => {
         {signUp ? <Signup result={setSignupDone} /> : <Signin />}
 
         <div className='flex justify-center gap-x-4 text-purple-600'>
-          <div>-----</div>
+          <div>--</div>
           <p>or</p>
-          <div>-----</div>
+          <div>--</div>
         </div>
 
         <GoogleSigninButton />
