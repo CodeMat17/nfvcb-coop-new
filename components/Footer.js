@@ -17,7 +17,7 @@ const Footer = () => {
           <p className='text-white/80'>
             Copyright &copy; 2023 NSMCS. All rights reserved.
           </p>
-          <p className='text-sm mt-1 text-gray-400'>
+          <p className='text-xs mt-1 text-gray-400'>
             This application was designed and developed by{" "}
             <Link
               href='https://matthewchukwu.com.ng'
