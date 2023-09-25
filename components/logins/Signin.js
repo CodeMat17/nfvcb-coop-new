@@ -96,7 +96,7 @@ const Signin = () => {
         <div className='pt-2'>
           <button
             onClick={handleSignIn}
-            className='w-full py-2.5 rounded-xl bg-purple-900 tracking-wide text-white group-invalid:pointer-events-none group-invalid:opacity-30'>
+            className='w-full py-2.5 rounded-xl bg-[#D76F30] tracking-wide text-white group-invalid:pointer-events-none group-invalid:opacity-30'>
             {loading ? (
               <div className='flex items-center justify-center gap-x-4'>
                 <AiOutlineLoading className='text-2xl font-medium animate-spin' />{" "}

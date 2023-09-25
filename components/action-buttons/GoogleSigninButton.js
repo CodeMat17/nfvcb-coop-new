@@ -16,11 +16,11 @@ const GoogleSigninButton = () => {
     <div>
       <button
         onClick={signInWithGoogle}
-        className='w-full py-1.5 flex items-center justify-center gap-x-3 rounded-xl bg-purple-900 text-white'>
-        <span className="bg-white rounded-full p-1">
+        className='w-full py-2 flex items-center justify-center gap-x-1 rounded-xl bg-[#D76F30] text-white'>
+        <span className='bg-white rounded-full p-1'>
           <FcGoogle className='text-2xl' />
         </span>{" "}
-        <span>Sign up with Google</span>
+        <span className='text-sm'>Sign up with Google</span>
       </button>
     </div>
   );

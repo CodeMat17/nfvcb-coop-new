@@ -65,11 +65,9 @@ const AccountPage = () => {
   return (
     <div className='px-4 py-12 min-h-screen w-full'>
       <div>
-        <h1 className='text-xl text-center text-purple-900'>
-          Welcome, {email}
-        </h1>
-        <p className='text-center text-sm text-purple-700'>
-          Kindly fill the form below to complete your registration.
+        <h1 className='text-xl text-center text-[#D76F30]'>Welcome, {email}</h1>
+        <p className='text-center text-sm text-[#b0886f]'>
+          Fill the form below to complete your registration.
         </p>
       </div>
       <div className='flex flex-col justify-center items-center'>
@@ -77,7 +75,7 @@ const AccountPage = () => {
           <Image alt='' fill priority src='/account.svg' />
         </div>
       </div>
-     {/* <p> name: {username.typeof}</p> */}
+      {/* <p> name: {username.typeof}</p> */}
       <OtherDataForm user_id={user_id} />
     </div>
   );

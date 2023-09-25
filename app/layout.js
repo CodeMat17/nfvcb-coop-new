@@ -24,7 +24,7 @@ export default async function RootLayout({ children }) {
     <html lang='en'>
       <body className={inter.className}>
         {session && <NavHeader />}
-        <main className='bg-purple-50'>{children}</main>
+        <main className='bg-gray-50'>{children}</main>
         <Footer />
       </body>
     </html>
