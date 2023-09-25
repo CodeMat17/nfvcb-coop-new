@@ -53,35 +53,49 @@ const OtherDataForm = ({ user_id }) => {
             username,
             ippis_no,
             station,
-            phone_no
+            phone_no,
           })
           .eq("id", id);
 
         if (error1) {
-          throw error1;
+          toast.error(error1.message, {
+            duration: 5000,
+            position: "top-center",
+            // Styling
+            style: {},
+            className: "",
+          });
         }
 
-        let { error: error2 } = await supabase
-          .from("loans")
-          .update({
-            username,
-          })
-          .eq("id", id)
-          .select();
+        if (!error1) {
+          let { error: error2 } = await supabase
+            .from("loans")
+            .update({
+              username,
+            })
+            .eq("id", id)
+            .select();
 
-        if (error2) {
-          throw error2;
+          if (error2) {
+            toast.error(error2.message, {
+              duration: 5000,
+              position: "top-center",
+              // Styling
+              style: {},
+              className: "",
+            });
+          }
+
+          toast.success(`Registration completed successfully`, {
+            duration: 5000,
+            position: "top-center",
+            // Styling
+            style: {},
+            className: "",
+          });
+          router.refresh();
+          router.push("/coop-data");
         }
-
-        toast.success(`Registration completed successfully`, {
-          duration: 5000,
-          position: "top-center",
-          // Styling
-          style: {},
-          className: "",
-        });
-        router.refresh();
-        router.push("/coop-data");
       } catch (error) {
         console.log("Error updating the data!", error);
       } finally {
@@ -128,7 +142,7 @@ const OtherDataForm = ({ user_id }) => {
       <div className='pt-2'>
         <button
           onClick={updateProfile}
-          className='bg-[#D76F30] tracking-wider transition-colors duration-500 hover:bg-purple-700 w-full py-3 rounded-xl text-white'>
+          className='bg-[#D76F30] tracking-wider transition-colors duration-500 hover:bg-[#974714] w-full py-3 rounded-xl text-white'>
           {loading ? (
             <div className='flex items-center justify-center gap-x-4'>
               <AiOutlineLoading className='text-2xl font-medium animate-spin' />{" "}

@@ -60,35 +60,35 @@ const DataPage = () => {
   if (loading) {
     return (
       <div className='px-4 py-20 min-h-screen w-full flex flex-col items-center space-y-4'>
-        <AiOutlineLoading className='text-3xl font-bold animate-spin text-purple-800' />
-        <p className='text-purple-500'>Please wait</p>
+        <AiOutlineLoading className='text-3xl font-bold animate-spin text-[#D76F30]' />
+        <p className=''>Please wait</p>
       </div>
     );
   }
   return (
     <div className='w-full px-4 py-12 min-h-screen'>
-      <h1 className='text-2xl text-center font-medium tracking-wider text-purple-900'>
+      <h1 className='text-2xl text-center font-medium tracking-wider text-[#D76F30]'>
         Hello,
       </h1>
 
       <div className='max-w-md mx-auto'>
         {confirmed ? (
           <div>
-            <div className='border mt-6 pt-2 pb-1 px-1 bg-purple-600 rounded-xl shadow-md'>
+            <div className='border mt-6 pt-2 pb-1 px-1 bg-green-600 rounded-xl shadow-md'>
               <p className='text-center text-white tracking-widest'>
                 Cooperator
               </p>
               <div className='pr-2 py-2 flex items-center space-x-2 bg-purple-50 rounded-b-xl overflow-hidden mt-1'>
                 <div className='max-w-[20%] '>
-                  <IoMdContact size={70} className='text-purple-900' />
+                  <IoMdContact size={70} className='text-[#D76F30]' />
                 </div>
 
                 <div className='max-w-[80%] '>
-                  <h2 className=' text-xl block truncate text-purple-900'>
+                  <h2 className=' text-xl block truncate text-[#D76F30]'>
                     {username}
                   </h2>
 
-                  <div className='text-purple-600 leading-4'>
+                  <div className='text-gray-400 leading-4'>
                     <p>{station}</p>
                   </div>
                 </div>
@@ -106,8 +106,8 @@ const DataPage = () => {
               <div className='py-4'>
                 <p className='text-lg font-medium'>Total Contributions</p>
                 <div className='flex justify-start  '>
-                  <div className='p-1 shadow-md border rounded-full bg-purple-100'>
-                    <div className='text-xl font-bold tracking-wide px-4 py-2 shadow-md rounded-full bg-pink-200 text-pink-800'>
+                  <div className='p-1 shadow-md border rounded-full bg-green-100'>
+                    <div className='text-xl font-bold tracking-wide px-4 py-2 shadow-md rounded-full bg-[#f0dbcd] text-[#D76F30]'>
                       <FormatedCurrency amount={total_contributions} />
                     </div>
                   </div>

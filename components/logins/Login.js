@@ -37,7 +37,7 @@ const LoginPage = () => {
           NFVCB COOP.
         </h1> */}
         <section className={vibes.className}>
-          <p className='mt-6 text-center font-bold text-3xl tracking-widest text-[#D76F30]'>
+          <p className='mt-6 text-center font-bold text-4xl tracking-widest text-[#D76F30]'>
             {signUp ? "Sign Up" : "Sign In"}
           </p>
         </section>
@@ -45,7 +45,7 @@ const LoginPage = () => {
 
       <div className='w-full mt-2 py-4 rounded-2xl bg-whit shadow-m borde px-4 max-w-sm sm:max-w-xs mx-auto space-y-2 transition-all duration-500'>
         <div className='flex justify-center pb-4'>
-          <LogoComponent classnames='w-16 h-16' />
+          <LogoComponent classnames='w-20 h-20 ' />
         </div>
 
         {signUp ? <Signup result={setSignupDone} /> : <Signin />}

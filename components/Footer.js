@@ -3,7 +3,7 @@ import LogoComponent from "./LogoComponent";
 
 const Footer = () => {
   return (
-    <div className='px-4 py-6 bg-purple-950'>
+    <div className='px-4 py-6 bg-gray-950'>
       <div className='max-w-5xl mx-auto'>
         <div className='flex items-center leading-5 gap-x-2'>
           <div>
