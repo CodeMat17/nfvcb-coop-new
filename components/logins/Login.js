@@ -50,9 +50,9 @@ const LoginPage = () => {
 
         {signUp ? <Signup result={setSignupDone} /> : <Signin />}
 
-        <div className='flex justify-center text-green-400'>
+        {/* <div className='flex justify-center text-green-400'>
           <p>OR</p>
-        </div>
+        </div> */}
 
         {/* <GoogleSigninButton /> */}
 
