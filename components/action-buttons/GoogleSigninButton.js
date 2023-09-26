@@ -1,7 +1,7 @@
 "use client";
 
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import {FcGoogle} from 'react-icons/fc'
+import { FcGoogle } from "react-icons/fc";
 
 const GoogleSigninButton = () => {
   const supabase = createClientComponentClient();
@@ -9,6 +9,12 @@ const GoogleSigninButton = () => {
   const signInWithGoogle = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
+      options: {
+        queryParams: {
+          access_type: "offline",
+          prompt: "consent",
+        },
+      },
     });
   };
 
