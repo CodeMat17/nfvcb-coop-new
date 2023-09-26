@@ -54,7 +54,7 @@ const LoginPage = () => {
           <p>OR</p>
         </div>
 
-        <GoogleSigninButton />
+        {/* <GoogleSigninButton /> */}
 
         {signUp ? (
           <p className='text-center text-sm pt-2'>
