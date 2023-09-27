@@ -5,7 +5,7 @@ import { Urbanist } from "next/font/google";
 import { cookies } from "next/headers";
 import "./globals.css";
 
-const urbanist = Urbanist({ subsets: ["latin"], weight: ["400"] });
+const urbanist = Urbanist({ subsets: ["latin"], weight: ["500"] });
 export const dynamic = "force-dynamic";
 
 export const metadata = {
