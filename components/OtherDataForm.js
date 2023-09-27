@@ -105,7 +105,7 @@ const OtherDataForm = ({ user_id }) => {
   }
 
   return (
-    <div className='bg-green-50 px-4 pb-4 rounded-xl flex flex-col justify-center space-y-2 w-full max-w-xs mx-auto'>
+    <div className='bg-green px-4 pb-4 rounded-xl flex flex-col justify-center space-y-3 w-full max-w-xs mx-auto'>
       <Toaster />
       <p className='text-xs text-red-500 text-center'>{errorMsg}</p>
       {/* <pre>{JSON.stringify(user.id, null, 2)}</pre> */}
@@ -115,21 +115,21 @@ const OtherDataForm = ({ user_id }) => {
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         placeholder='Enter your fullname'
-        className='px-3 py-2 rounded-xl text-[#D76F30]'
+        className='px-3 py-2 rounded-xl text-[#D76F30] bg-gray-100 border shadow-md'
       />
       <input
         type='text'
         value={phone_no}
         onChange={(e) => setPhoneNo(e.target.value)}
         placeholder='Enter your phone no.'
-        className='px-3 py-2 rounded-xl text-[#D76F30]'
+        className='px-3 py-2 rounded-xl text-[#D76F30] bg-gray-100 border shadow-md'
       />
       <input
         type='text'
         value={station}
         onChange={(e) => setStation(e.target.value)}
         placeholder='Enter your station'
-        className='px-3 py-2 rounded-xl text-[#D76F30]'
+        className='px-3 py-2 rounded-xl text-[#D76F30] bg-gray-100 border shadow-md'
       />
       <input
         type='text'
@@ -137,7 +137,7 @@ const OtherDataForm = ({ user_id }) => {
         maxLength={9}
         onChange={(e) => setIPPIS(e.target.value)}
         placeholder='Enter your IPPIS no.'
-        className='px-3 py-2 rounded-xl text-[#D76F30]'
+        className='px-3 py-2 rounded-xl text-[#D76F30] bg-gray-100 border shadow-md'
       />
       <div className='pt-2'>
         <button

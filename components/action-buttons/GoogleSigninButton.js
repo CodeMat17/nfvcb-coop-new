@@ -1,21 +1,29 @@
 "use client";
 
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { useRouter } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
 
 const GoogleSigninButton = () => {
   const supabase = createClientComponentClient();
+  const router = useRouter();
 
   const signInWithGoogle = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: {
-        queryParams: {
-          access_type: "offline",
-          prompt: "consent",
-        },
-      },
     });
+
+    // if (data) {
+    //   // router.refresh();
+    //   console.log("data: ", data);
+    //   console.log("redirecting to success page");
+    //   router.push("/successful");
+    // }
+
+    
+    // if (error) {
+    //   console.log("error: ", error);
+    // }
   };
 
   return (

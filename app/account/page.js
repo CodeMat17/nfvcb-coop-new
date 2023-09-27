@@ -65,7 +65,7 @@ const AccountPage = () => {
   return (
     <div className='px-4 py-12 min-h-screen w-full'>
       <div>
-        <h1 className='text-xl text-center text-[#D76F30]'>Welcome, {email}</h1>
+        <h1 className='text-2xl text-center font-medium text-[#D76F30]'>Welcome, {email}</h1>
         <p className='text-center text-sm text-[#b0886f]'>
           Fill the form below to complete your registration.
         </p>
