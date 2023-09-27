@@ -1,11 +1,11 @@
 import Footer from "@/components/Footer";
 import NavHeader from "@/components/HavHeader";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { Inter } from "next/font/google";
+import { Urbanist } from "next/font/google";
 import { cookies } from "next/headers";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const urbanist = Urbanist({ subsets: ["latin"], weight: ["400"] });
 export const dynamic = "force-dynamic";
 
 export const metadata = {
@@ -22,7 +22,7 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <body className={`${urbanist.className}`}>
         {session && <NavHeader />}
         <main className='bg-gray-50'>{children}</main>
         <Footer />

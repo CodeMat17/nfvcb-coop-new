@@ -3,10 +3,13 @@
 import FormatedCurrency from "@/components/FormatedCurrency";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import dayjs from "dayjs";
+import { Macondo } from "next/font/google";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 import { IoMdContact } from "react-icons/io";
+
+const macondo = Macondo({ subsets: ["latin"], weight: ["400"] });
 
 export const revalidate = 0;
 
@@ -61,7 +64,7 @@ const DataPage = () => {
     return (
       <div className='px-4 py-20 min-h-screen w-full flex flex-col items-center space-y-4'>
         <AiOutlineLoading className='text-3xl font-bold animate-spin text-[#D76F30]' />
-        <p className=''>Please wait</p>
+        <p className='text-[#D76F30]'>Please wait</p>
       </div>
     );
   }
@@ -84,9 +87,11 @@ const DataPage = () => {
                 </div>
 
                 <div className='max-w-[80%] '>
-                  <h2 className=' text-xl block truncate text-[#D76F30]'>
-                    {username}
-                  </h2>
+                  <section className={macondo.className}>
+                    <h2 className=' text-xl font-medium block truncate text-[#D76F30]'>
+                      {username}
+                    </h2>
+                  </section>
 
                   <div className='text-gray-400 leading-4'>
                     <p>{station}</p>

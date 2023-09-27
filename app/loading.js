@@ -4,9 +4,9 @@ const LoadingUI = () => {
   return (
     <div className='min-h-screen px-4 py-24 flex flex-col items-center gap-y-4'>
       <div>
-        <AiOutlineLoading className='text-3xl text-purple-700 animate-spin' />
+        <AiOutlineLoading className='text-3xl text-[#D76F30] animate-spin' />
       </div>
-      <p className=' text-purple-700'>Loading...</p>{" "}
+      <p className=' text-[#D76F30]'>Loading...</p>{" "}
     </div>
   );
 };
