@@ -18,33 +18,21 @@ const Footer = () => {
         </div>
         <div className='py-12 flex flex-col sm:flex-row sm:justify-center gap-y-3 sm:gap-x-8 '>
           <div className='w-[134px] group'>
-            <a
-              href='https://wa.me/2348035672400'
-              target='_blank'
-              className=' flex items-center'>
-              <FaWhatsapp className='text-[#D76F30] text-2xl transition-colors duration-500 ease-in-out group-hover:text-white' />
-              <p className='mt-1 ml-1 text-gray-400 transition-colors duration-500 ease-in-out group-hover:text-white'>
-                Contact Us
-              </p>
-            </a>
-          </div>
-
-          <div className='w-[134px] group'>
-            <a href='#' target='_blank' className=' flex items-center'>
-              <RiSecurePaymentFill className='text-[#D76F30] text-[26px] transition-colors duration-500 ease-in-out group-hover:text-white' />
-              <p className='mt-1 ml-1 text-gray-400 transition-colors duration-500 ease-in-out group-hover:text-white'>
-                Repay Loan
-              </p>
-            </a>
-          </div>
-
-          <div className='w-[134px] group'>
             <Link href='/executives' className=' flex items-center'>
               <MdContactPage className='text-[#D76F30] text-2xl transition-colors duration-500 ease-in-out group-hover:text-white' />
               <p className='mt-1 ml-1 text-gray-400 transition-colors duration-500 ease-in-out group-hover:text-white'>
                 Executives
               </p>
             </Link>
+          </div>
+
+          <div className='w-[134px] group'>
+            <a href='#' target='_blank' className=' flex items-center'>
+              <RiSecurePaymentFill className='text-[#D76F30] text-[26px] transition-colors duration-500 ease-in-out group-hover:text-white' />
+              <p className='mt-1 ml-1 whitespace-nowrap text-gray-400 transition-colors duration-500 ease-in-out group-hover:text-white'>
+                Repay Loan
+              </p>
+            </a>
           </div>
         </div>
         <div className=' text-center'>
