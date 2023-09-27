@@ -9,7 +9,7 @@ const LogoComponent = ({classnames}) => {
         fill
         priority
         // objectFit='contain'
-        src='/coop-logo.png'
+        src='/logo.png'
       />
     </div>
   );
