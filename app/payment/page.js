@@ -26,7 +26,7 @@ const PaymentPage = async () => {
       </p>
 
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-      {data.loans.amount === null ? <OtherPayment /> :
+      {data.loans.amount !== null ? <OtherPayment /> :
         <PaystackPage
           session={session}
           user_name={data.username}
