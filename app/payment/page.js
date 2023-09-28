@@ -22,18 +22,22 @@ const PaymentPage = async () => {
         LOAN REPAYMENT
       </h1>
       <p className='text-center'>
-        A secured payment system, powered by <span className="font-semibold"> Paystack</span>.
+        A secured payment system, powered by{" "}
+        <span className='font-semibold'> Paystack</span>.
       </p>
 
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-      {data.loans.amount !== null ? <OtherPayment /> :
+      {data.loans.amount === null ? (
         <PaystackPage
           session={session}
           user_name={data.username}
           user_email={data.email}
           user_phone={data.phone_no}
           loan_amount={data.loans.amount}
-        />}
+        />
+      ) : (
+        <OtherPayment />
+      )}
     </div>
   );
 };
