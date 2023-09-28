@@ -27,12 +27,12 @@ const Footer = () => {
           </div>
 
           <div className='w-[134px] group'>
-            <a href='#' target='_blank' className=' flex items-center'>
+            <Link href='/payment' className=' flex items-center'>
               <RiSecurePaymentFill className='text-[#D76F30] text-[26px] transition-colors duration-500 ease-in-out group-hover:text-white' />
               <p className='mt-1 ml-1 whitespace-nowrap text-gray-400 transition-colors duration-500 ease-in-out group-hover:text-white'>
                 Repay Loan
               </p>
-            </a>
+            </Link>
           </div>
         </div>
         <div className=' text-center'>
