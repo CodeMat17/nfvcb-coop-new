@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { FaWhatsapp } from "react-icons/fa6";
+import { AiFillProfile } from "react-icons/ai";
 import { MdContactPage } from "react-icons/md";
 import { RiSecurePaymentFill } from "react-icons/ri";
 import LogoComponent from "./LogoComponent";
+import {BiSolidHomeSmile} from 'react-icons/bi'
 
 const Footer = () => {
   return (
@@ -17,6 +18,24 @@ const Footer = () => {
           </p>
         </div>
         <div className='py-12 flex flex-col sm:flex-row sm:justify-center gap-y-3 sm:gap-x-8 '>
+          <div className='w-[134px] group'>
+            <Link href='/' className=' flex items-center'>
+              <BiSolidHomeSmile className='text-[#D76F30] text-2xl transition-colors duration-500 ease-in-out group-hover:text-white' />
+              <p className='mt-1 ml-1 text-gray-400 transition-colors duration-500 ease-in-out group-hover:text-white'>
+                Home
+              </p>
+            </Link>
+          </div>
+
+          <div className='w-[134px] group'>
+            <Link href='/coop-data' className=' flex items-center'>
+              <AiFillProfile className='text-[#D76F30] text-[23px] transition-colors duration-500 ease-in-out group-hover:text-white' />
+              <p className='mt-1 ml-1 text-gray-400 transition-colors duration-500 ease-in-out group-hover:text-white'>
+                Profile
+              </p>
+            </Link>
+          </div>
+
           <div className='w-[134px] group'>
             <Link href='/executives' className=' flex items-center'>
               <MdContactPage className='text-[#D76F30] text-2xl transition-colors duration-500 ease-in-out group-hover:text-white' />

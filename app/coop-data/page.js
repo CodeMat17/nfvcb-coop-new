@@ -21,7 +21,8 @@ const DataPage = () => {
   const [loan_status, setStatus] = useState(null);
   const [confirmed, setConfirmed] = useState(false);
   const [loanAmount, setLoansAmount] = useState(null);
-  const [joined_on, setJoined] = useState(null);
+   const [joined_on, setJoined] = useState(null);
+  const [approved_on, setApproved] = useState(null);
   const [monthly_contribution, setMonthly] = useState(null);
   const [total_contributions, setTotalContributions] = useState(null);
 
@@ -31,7 +32,7 @@ const DataPage = () => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `loan_status, station, username, confirmed, loans(id, amount, joined_on, total_contributions, monthly_contribution)`
+          `loan_status, station, username, confirmed, loans(id, amount, joined_on, total_contributions, monthly_contribution, approved_on)`
         )
         .single();
 
@@ -46,6 +47,7 @@ const DataPage = () => {
         setConfirmed(data.confirmed);
         setLoansAmount(data.loans.amount);
         setJoined(data.loans.joined_on);
+        setApproved(data.loans.approved_on)
         setMonthly(data.loans.monthly_contribution);
         setTotalContributions(data.loans.total_contributions);
       }
@@ -157,7 +159,9 @@ const DataPage = () => {
                   Amount borrowed -{" "}
                   <span className='text-2xl'>{loanAmount}</span>
                 </p>
-                <p className='text-center'>Approved on: Sept 01, 2023</p>
+                <p className='text-center'>
+                  Approved on: {dayjs(approved_on).format("MMM DD, YYYY")}
+                </p>
                 <p className='text-center'>Loan lifespan: 3 months</p>
               </div>
             )}

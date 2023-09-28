@@ -28,11 +28,12 @@ const PaystackPage = ({
   });
 
   const text = loanAmount;
-  const amount = parseFloat(text.replace(/,/g, "").replace(/[^0-9.-]+/g, "")) * 100;
+  const amount =
+    parseFloat(text.replace(/,/g, "").replace(/[^0-9.-]+/g, "")) * 100;
 
   const componentProps = {
     email,
-    amount ,
+    amount,
     metadata: { name, phone },
     publicKey,
     text: "Pay Now",
@@ -42,8 +43,7 @@ const PaystackPage = ({
   };
 
   return (
-    <div className='pt-8 max-w-sm mx-auto'>
-     
+    <div className='pt-16 max-w-sm mx-auto'>
       <div className='flex flex-col space-y-3'>
         <p className='px-4 py-2 bg-gray-200 text-gray-500 rounded-xl'>
           Name: {name}
@@ -51,18 +51,25 @@ const PaystackPage = ({
         <p className='px-4 py-2 bg-gray-200 text-gray-500 rounded-xl'>
           Repayable Amount: {loanAmount}
         </p>
-        <div className='relative mt-2 '>
+        <div className="pt-3">
+          <div className='relative '>
           <PaystackButton
             {...componentProps}
             className='w-full bg-[#D76F30] text-white font-medium px-6 py-2.5 rounded-xl'
-                  />
-                  <div className="absolute top-3 left-6">
-                       <div className='relative w-[20px] h-[20px]'>
-            <Image alt='paystack logo' fill priority src='/paystack-logo.png' />
-          </div> 
-                  </div>
-        
+          />
+          <div className='absolute top-3 left-6'>
+            <div className='relative w-[20px] h-[20px]'>
+              <Image
+                alt='paystack logo'
+                fill
+                priority
+                src='/paystack-logo.png'
+              />
+            </div>
+          </div>
+        </div> 
         </div>
+       
       </div>
     </div>
   );
