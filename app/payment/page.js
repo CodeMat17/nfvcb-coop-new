@@ -1,3 +1,4 @@
+import OtherPayment from "@/components/OtherPayment";
 import PaystackPage from "@/components/Paystack";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
@@ -25,14 +26,14 @@ const PaymentPage = async () => {
       </p>
 
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
-
-      <PaystackPage
-        session={session}
-        user_name={data.username}
-        user_email={data.email}
-        user_phone={data.phone_no}
-        loan_amount={data.loans.amount}
-      />
+      {data.loans.amount === null ? <OtherPayment /> :
+        <PaystackPage
+          session={session}
+          user_name={data.username}
+          user_email={data.email}
+          user_phone={data.phone_no}
+          loan_amount={data.loans.amount}
+        />}
     </div>
   );
 };
