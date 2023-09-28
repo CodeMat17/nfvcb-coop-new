@@ -12,7 +12,7 @@ const OtherPayment = () => {
           <h1 className='text-center font-medium text-lg'>
             You do not have a soft loan running now.
           </h1>
-          <p className='mt-8 text-center'>
+          <p className='mt-12 text-center'>
             Do you want to make other payments?
           </p>
           <div className='mt-2 px-8 flex items-center justify-around gap-x-6'>
