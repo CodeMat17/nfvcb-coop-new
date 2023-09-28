@@ -13,7 +13,7 @@ const PaystackPage = ({
   loan_amount,
 }) => {
   const router = useRouter();
-  const publicKey = "pk_test_01fc1183b5664f5c293f2f729aa4c876f0bfffd6";
+  const publicKey = process.env.NEXT_PUBLIC_SUPABASE_PAYSTACK_KEY;
   const [loading, setLoading] = useState(true);
   const [name, setName] = useState(user_name);
   const [email, setEmail] = useState(user_email);

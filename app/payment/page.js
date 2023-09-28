@@ -21,7 +21,7 @@ const PaymentPage = async () => {
         LOAN REPAYMENT
       </h1>
       <p className='text-center'>
-        A secured payment system. Powered by Paystack.
+        A secured payment system, powered by <span className="font-semibold"> Paystack</span>.
       </p>
 
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
