@@ -22,7 +22,7 @@ const OtherPayment = () => {
     parseFloat(text.replace(/,/g, "").replace(/[^0-9.-]+/g, "")) * 100;
 
   const handleSuccessAction = (ref) => {
-    alert("Your... soft loan has been repaid successfully!!")
+    alert("Payment received. Send payment details to the coop. Fin. Sec. or the President.")
     setLoading(true)
     router.push('/coop-data')
      setLoading(false);
