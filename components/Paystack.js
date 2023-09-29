@@ -18,7 +18,6 @@ const PaystackPage = ({
   const [name, setName] = useState(user_name);
   const [email, setEmail] = useState(user_email);
   const [loanAmount, setLoanAmount] = useState(loan_amount);
-    const [amount, setAmount] = useState(null);
   const [phone, setPhone] = useState(user_phone);
   const user = session?.user;
 
@@ -29,11 +28,9 @@ const PaystackPage = ({
   });
 
   const text = loanAmount;
-  if (loanAmount) {
     const amount =
-      parseFloat(text.replace(/,/g, "").replace(/[^0-9.-]+/g, "")) * 100;
-  setAmount(amount)
-  }
+      parseFloat(text?.replace(/,/g, "").replace(/[^0-9.-]+/g, "")) * 100;
+  
 
   const componentProps = {
     email,
