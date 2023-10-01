@@ -106,7 +106,7 @@ const ClearApprovedLoanModal = ({
         <button
           type='button'
           onClick={openModal}
-          className='text-sm w-full tracking-wider px-4 py-2 rounded-xl bg-purple-200 text-purple-800'>
+          className='text-sm w-full tracking-wider px-4 py-2 rounded-xl bg-green-300 font-medium text-green-800'>
           CLEAR REPAID LOAN
         </button>
       </div>
@@ -137,15 +137,15 @@ const ClearApprovedLoanModal = ({
                 <Dialog.Panel className='w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all'>
                   <Dialog.Title
                     as='h3'
-                    className='text-lg tracking-wider font-medium leading-6 text-purple-800'>
+                    className='text-lg tracking-wider font-medium leading-6 text-green-800'>
                     Clear Repaid Loan!
                   </Dialog.Title>
                   <div className='mt-2'>
                     <p className='text-sm text-gray-500'>
                       Are you sure that{" "}
-                      <span className='text-purple-600'> {username}</span> has
+                      <span className='text-green-600'> {username}</span> has
                       repaid this loan of{" "}
-                      <span className='text-purple-600'>{amount}</span> and you
+                      <span className='text-green-600'>{amount}</span> and you
                       want to clear it?
                     </p>
                   </div>
@@ -159,7 +159,7 @@ const ClearApprovedLoanModal = ({
                     </button>
                     <button
                       onClick={clearLoan}
-                      className='inline-flex justify-center rounded-md border border-transparent bg-purple-100 px-4 py-2 text-sm font-medium text-purple-800 hover:bg-purple-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'>
+                      className='inline-flex justify-center rounded-md border border-transparent bg-green-200 px-4 py-2 text-sm font-medium text-green-800 hover:bg-green-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'>
                       {loading ? "Clearing..." : "Clear"}
                     </button>
                   </div>

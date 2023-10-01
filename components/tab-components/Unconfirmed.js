@@ -13,11 +13,11 @@ const Unconfirmed = ({ unconfirmed }) => {
         <>
           {unconfirmed.map((user) => (
             <Link key={user.id} href={`/admin-dashboard/${user.id}`}>
-              <div className=' bg-purple-100 mb-4 p-4 rounded-xl overflow-hidden'>
-                <h1 className='text-lg text-purple-900 font-medium truncate'>
+              <div className=' bg-[#fcf0e9] mb-4 p-4 rounded-xl overflow-hidden'>
+                <h1 className='text-lg text-[#f7a572] font-medium truncate'>
                   {user.username}
                 </h1>
-                <p className='text-sm text-gray-500'>{user.station}</p>
+                <p className='text-sm text-[#D76F30]'>{user.station}</p>
               </div>
             </Link>
           ))}

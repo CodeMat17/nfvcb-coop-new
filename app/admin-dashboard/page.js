@@ -77,14 +77,19 @@ const AdminDashboard = async () => {
   return (
     <div className='px-4 py-12 min-h-screen'>
       <Toaster />
-      <h1 className='text-3xl font-medium text-center text-purple-800'>
+      <h1 className='text-3xl font-medium text-center text-[#D76F30]'>
         Admin Dashboard
       </h1>
       {/* <pre>{JSON.stringify(approved, null, 2)}</pre> */}
 
       {profile && profile.is_admin ? (
         <div>
-          <TabsComponent  unconfirmed={unconfirmed} admin_name={profile.username} loans={loans} approved={approved} />
+          <TabsComponent
+            unconfirmed={unconfirmed}
+            admin_name={profile.username}
+            loans={loans}
+            approved={approved}
+          />
         </div>
       ) : (
         <div className='px-4 py-20 min-h-screen max-w-sm mx-auto'>

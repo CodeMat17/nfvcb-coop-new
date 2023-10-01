@@ -13,10 +13,10 @@ const ApprovedLoans = ({ admin_name, approved }) => {
             <div
               key={appr.id}
               className='bg-green-100 mb-4 p-4 rounded-xl overflow-hidden'>
-              <h1 className='text-lg text-purple-900 font-medium truncate'>
+              <h1 className='text-lg text-green-800 font-medium truncate'>
                 {appr.username}
               </h1>
-              <p className='text-sm text-gray-500'>{appr.station}</p>
+              <p className='text-sm text-green-500'>{appr.station}</p>
               <p className='text-green-600'>
                 Loan Request: {appr.loans.amount}
               </p>

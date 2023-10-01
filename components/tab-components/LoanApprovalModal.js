@@ -82,7 +82,7 @@ const LoanApprovalModal = ({ admin_name, loan_name, loan_amount, loan_id }) => {
         <button
           type='button'
           onClick={openModal}
-          className='text-sm w-full tracking-wider px-4 py-2 rounded-xl bg-green-200 text-green-600'>
+          className='text-sm font-medium w-full tracking-wider px-4 py-2.5 rounded-xl bg-purple-300 text-purple-800'>
           APPROVE
         </button>
       </div>
@@ -119,8 +119,8 @@ const LoanApprovalModal = ({ admin_name, loan_name, loan_amount, loan_id }) => {
                   <div className='mt-2'>
                     <p className='text-sm text-gray-500'>
                       Are you sure you want to approve a soft loan of{" "}
-                      <span className='text-purple-600'>{loan_amount}</span> for
-                      <span className='text-purple-600'> {loan_name}</span>?
+                      <span className='text-purple-600 font-medium'>{loan_amount}</span> for
+                      <span className='text-purple-600 font-medium'> {loan_name}</span>?
                     </p>
                   </div>
 
@@ -133,7 +133,7 @@ const LoanApprovalModal = ({ admin_name, loan_name, loan_amount, loan_id }) => {
                     </button>
                     <button
                       onClick={approveLoan}
-                      className='inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-600 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'>
+                      className='inline-flex justify-center rounded-md border border-transparent bg-purple-100 px-4 py-2 text-sm font-medium text-purple-800 hover:bg-purple-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'>
                       {loading ? "Approving..." : "Approve"}
                     </button>
                   </div>

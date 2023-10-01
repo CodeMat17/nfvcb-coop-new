@@ -20,8 +20,8 @@ const Loans = ({ loans, admin_name }) => {
               <h1 className='text-lg text-purple-900 font-medium truncate'>
                 {loan.username}
               </h1>
-              <p className='text-sm text-gray-500'>{loan.station}</p>
-              <p className='text-sm text-gray-500'>{loan.phone_no}</p>
+              <p className='text-sm text-purple-500'>{loan.station}</p>
+              <p className='text-sm text-purple-500'>{loan.phone_no}</p>
               <p className='text-red-600'>Loan Request: {loan.loans.amount}</p>
               <div className='pt-3'>
                 <LoanApprovalModal

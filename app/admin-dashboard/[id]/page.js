@@ -21,7 +21,7 @@ const UserDataPage = async ({ params: { id } }) => {
 
   return (
     <div className='px-4 py-12 min-h-screen'>
-      <h1 className='text-3xl text-center font-medium text-purple-800'>
+      <h1 className='text-3xl text-center font-medium text-[#D76F30]'>
         Update Financial Data
       </h1>
       {/* <pre>{JSON.stringify(profile, null, 2)}</pre> */}

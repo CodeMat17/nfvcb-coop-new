@@ -6,6 +6,7 @@ import { AiOutlineLoading } from "react-icons/ai";
 import LogoComponent from "./LogoComponent";
 import SignOut from "./action-buttons/SignoutBtn";
 import Link from "next/link";
+import MobileMenu from "./MobileMenu";
 
 const HavHeader = () => {
   const supabase = createClientComponentClient();
@@ -44,16 +45,27 @@ const HavHeader = () => {
         <LogoComponent classnames='w-12 h-12' />
         {is_admin && (
           <>
-            {loading ? <AiOutlineLoading className="text-yellow-600 text-xl font-bold animate-spin" /> :
+            {loading ? (
+              <AiOutlineLoading className='text-yellow-600 text-xl font-bold animate-spin' />
+            ) : (
               <Link
                 href='/admin-dashboard'
                 className='transition-colors duration-500 ease-in-out bg-green-800 hover:bg-green-700 px-4 py-2 rounded-2xl'>
                 Dashboard
-              </Link>}
+              </Link>
+            )}
           </>
         )}
 
         <SignOut />
+
+        <div>
+          <MobileMenu />
+
+         
+
+      
+        </div>
       </div>
     </div>
   );

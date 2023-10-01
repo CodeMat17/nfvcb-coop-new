@@ -157,7 +157,7 @@ const UpdateFinancialData = ({
       <div className=' pt-4'>
         <button
           onClick={upload}
-          className='py-2 p-4 w-full bg-purple-200 text-purple-800 rounded-xl'>
+          className='py-2 p-4 w-full bg-[#fce9de] text-[#D76F30] rounded-xl'>
           {loading ? "Uploading..." : "Upload and Confirm"}
         </button>
       </div>

@@ -16,15 +16,15 @@ export default function TabsComponent({ unconfirmed, admin_name, loans, approved
   return (
     <div className='w-full max-w-lg mx-auto py-8'>
       <Tab.Group>
-        <Tab.List className='flex space-x-1 rounded-xl bg-purple-900/20 p-1'>
+        <Tab.List className='flex space-x-1 rounded-xl bg-[#fcf0e9] p-1'>
           <Tab
             className={({ selected }) =>
               classNames(
-                "w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-purple-700",
-                "ring-white ring-opacity-60 ring-offset-2 ring-offset-purple-400 focus:outline-none focus:ring-2",
+                "w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-[#D76F30]",
+                "ring-white ring-opacity-60 ring-offset-2 ring-offset-[#D76F30] focus:outline-none focus:ring-2",
                 selected
                   ? "bg-white shadow"
-                  : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
+                  : " hover:bg-white/[0.12] hover:text-white"
               )
             }>
             Unconfirmed
@@ -33,11 +33,11 @@ export default function TabsComponent({ unconfirmed, admin_name, loans, approved
           <Tab
             className={({ selected }) =>
               classNames(
-                "w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-purple-700",
-                "ring-white ring-opacity-60 ring-offset-2 ring-offset-purple-400 focus:outline-none focus:ring-2",
+                "w-full rounded-lg py-2.5 text-sm font-medium leading-5 ",
+                "ring-white ring-opacity-60 ring-offset-2 ring-offset-purple-800 focus:outline-none focus:ring-2",
                 selected
-                  ? "bg-white shadow"
-                  : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
+                  ? "text-purple-800 bg-white shadow"
+                  : "text-[#D76F30] hover:bg-white/[0.12] hover:text-white"
               )
             }>
             Loans
@@ -46,11 +46,11 @@ export default function TabsComponent({ unconfirmed, admin_name, loans, approved
           <Tab
             className={({ selected }) =>
               classNames(
-                "w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-purple-700",
-                "ring-white ring-opacity-60 ring-offset-2 ring-offset-purple-400 focus:outline-none focus:ring-2",
+                "w-full rounded-lg py-2.5 text-sm font-medium leading-5 ",
+                "ring-white ring-opacity-60 ring-offset-2 ring-offset-green-800 focus:outline-none focus:ring-2",
                 selected
-                  ? "bg-white shadow"
-                  : "text-blue-100 hover:bg-white/[0.12] hover:text-white"
+                  ? "text-green-800 bg-white shadow"
+                  : "text-[#D76F30] hover:bg-white/[0.12] hover:text-white"
               )
             }>
             Approved
@@ -71,7 +71,6 @@ export default function TabsComponent({ unconfirmed, admin_name, loans, approved
               "ring-white ring-opacity-60 ring-offset-2 ring-offset-purple-400 focus:outline-none focus:ring-2"
             )}>
             <Loans loans={loans} admin_name={admin_name} />
-            {/* Loans */}
           </Tab.Panel>
 
           <Tab.Panel
