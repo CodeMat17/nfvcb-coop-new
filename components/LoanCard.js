@@ -90,7 +90,7 @@ const LoanCard = () => {
       }
 
       if (data2) {
-        toast.success(`Application sent successfully`, {
+        toast.success(`Loan application sent successfully`, {
           duration: 5000,
           position: "top-center",
           // Styling
@@ -110,8 +110,8 @@ const LoanCard = () => {
 
   if (loading) {
     return (
-      <div className='py-24 min-h-screen flex flex-col items-center space-y-4'>
-        <AiOutlineLoading className='text-3xl font-bold text-yellow animate-spin' />
+      <div className='py-24 min-h-screen flex flex-col items-center space-y-4 text-[#D76F30]'>
+        <AiOutlineLoading className='text-3xl font-bold text-[#D76F30] animate-spin' />
         <p>Please wait</p>
       </div>
     );
@@ -120,7 +120,7 @@ const LoanCard = () => {
   return (
     <div>
       <Toaster />
-      <h1 className='text-center text-2xl text-purple-900'>
+      <h1 className='text-center text-2xl text-[#D76F30]'>
         Enter loan details
       </h1>
 
@@ -193,11 +193,11 @@ const LoanCard = () => {
         <div className='py-4'>
           <button
             onClick={loanApplication}
-            className='w-full bg-purple-300 text-purple-900 py-3 rounded-xl disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-500'
+            className='w-full bg-[#fee8da] text-[#D76F30] py-3 rounded-xl disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-500'
             disabled={ippis.length < 9}>
             {waiting ? (
               <div className='flex items-center justify-center space-x-3'>
-                <AiOutlineLoading className="animate-spin font-medium text-2xl" />
+                <AiOutlineLoading className='animate-spin font-medium text-2xl' />
                 <span>Please wait</span>
               </div>
             ) : (

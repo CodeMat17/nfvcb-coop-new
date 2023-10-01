@@ -31,7 +31,8 @@ const SoftLoan = () => {
                 approval.
               </li>
               <li className='leading-5'>
-                Defaulters will have the loan amount taken from their salary of the subsequent month.
+                Defaulters will have the loan amount taken from their salary of
+                the subsequent month.
               </li>
             </ul>
 
@@ -39,7 +40,7 @@ const SoftLoan = () => {
               <Switch
                 checked={enabled}
                 onChange={setEnabled}
-                className={`${enabled ? "bg-purple-900" : "bg-purple-300"}
+                className={`transition-colors duration-500 ease-in-out ${enabled ? "bg-[#D76F30]" : "bg-[#dcb095]"}
           relative inline-flex h-[38px] w-[74px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}>
                 <span className='sr-only'>Use setting</span>
                 <span
@@ -48,7 +49,7 @@ const SoftLoan = () => {
             pointer-events-none inline-block h-[34px] w-[34px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
                 />
               </Switch>
-              <p className={`py-2 ${enabled ? "text-purple-900" : ""}`}>
+              <p className={`py-2 ${enabled ? "text-[#D76F30]" : ""}`}>
                 {enabled ? "I accept" : "Tap the button to accept T&C"}{" "}
               </p>
             </div>
@@ -57,7 +58,7 @@ const SoftLoan = () => {
               {enabled ? (
                 <button
                   onClick={() => setLoanCard(!loanCard)}
-                  className='tracking-wider transition-colors duration-500 ease-in-out bg-purple-900 hover:bg-purple-700 text-white w-full sm:w-1/2 p-3 shadow-md rounded-xl'>
+                  className='tracking-wider transition-colors duration-500 ease-in-out bg-[#D76F30] hover:bg-[#96420e] text-white w-full sm:w-1/2 p-3 shadow-md rounded-xl'>
                   Apply
                 </button>
               ) : (

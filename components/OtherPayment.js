@@ -6,7 +6,7 @@ import { useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 import { PaystackButton } from "react-paystack";
 
-const OtherPayment = () => {
+const OtherPayment = ({ msg }) => {
   const [no_loan, setNoLoan] = useState(true);
   const router = useRouter();
 
@@ -15,19 +15,21 @@ const OtherPayment = () => {
   const [email, setEmail] = useState("");
   const [loanAmount, setAmount] = useState("");
   const [phone, setPhone] = useState("");
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const text = loanAmount;
   const amount =
     parseFloat(text.replace(/,/g, "").replace(/[^0-9.-]+/g, "")) * 100;
 
   const handleSuccessAction = (ref) => {
-    alert("Payment received. Send payment details to the coop. Fin. Sec. or the President.")
-    setLoading(true)
-    router.push('/coop-data')
-     setLoading(false);
-  }
-  
+    alert(
+      "Payment received. Send payment details to the coop. Fin. Sec. or the President."
+    );
+    setLoading(true);
+    router.push("/coop-data");
+    setLoading(false);
+  };
+
   const componentProps = {
     email,
     amount,
@@ -52,9 +54,7 @@ const OtherPayment = () => {
     <div className='pt-12 max-w-sm mx-auto'>
       {no_loan ? (
         <div>
-          <h1 className='text-center font-medium text-lg'>
-            You do not have a soft loan running now.
-          </h1>
+          <h1 className='text-center font-medium text-lg'>{msg} </h1>
           <p className='mt-12 text-center'>
             Do you want to make other payments?
           </p>

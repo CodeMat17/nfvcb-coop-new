@@ -36,14 +36,7 @@ const Footer = () => {
             </Link>
           </div>
 
-          <div className='w-[134px] group'>
-            <Link href='/executives' className=' flex items-center'>
-              <MdContactPage className='text-[#D76F30] text-2xl transition-colors duration-500 ease-in-out group-hover:text-white' />
-              <p className='mt-1 ml-1 text-gray-400 transition-colors duration-500 ease-in-out group-hover:text-white'>
-                Executives
-              </p>
-            </Link>
-          </div>
+         
 
           <div className='w-[134px] group'>
             <Link href='/payment' className=' flex items-center'>
@@ -53,6 +46,17 @@ const Footer = () => {
               </p>
             </Link>
           </div>
+
+           <div className='w-[134px] group'>
+            <Link href='/executives' className=' flex items-center'>
+              <MdContactPage className='text-[#D76F30] text-2xl transition-colors duration-500 ease-in-out group-hover:text-white' />
+              <p className='mt-1 ml-1 text-gray-400 transition-colors duration-500 ease-in-out group-hover:text-white'>
+                Executives
+              </p>
+            </Link>
+          </div>
+
+          
         </div>
         <div className=' text-center'>
           <p className='text-xs text-gray-400'>

@@ -177,7 +177,7 @@ const DataPage = () => {
             {loan_status === "inactive" && (
               <div className='py-8 w-full'>
                 <Link href='/soft-loan'>
-                  <p className='w-full text-center p-3 transition-colors duration-500 bg-purple-900 hover:bg-purple-700 rounded-xl text-white'>
+                  <p className='w-full text-center p-3 transition-colors duration-500 bg-[#D76F30] hover:bg-[#ab480b] rounded-xl text-white'>
                     APPLY FOR SOFT LOAN
                   </p>
                 </Link>
