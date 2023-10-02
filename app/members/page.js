@@ -1,8 +1,6 @@
-import MemberCard from "@/components/MemberCard";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { supabaseRole } from "../utils/supabaseService";
-import {FaClipboardUser} from 'react-icons/fa6'
 import Link from "next/link";
 
 export const revalidate = 0;
