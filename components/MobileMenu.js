@@ -12,7 +12,7 @@ const links = [
 
 const MobileMenu = () => {
   return (
-    <div className="md:hidden">
+    <div className='md:hidden'>
       {" "}
       <Menu as='div' className='relative inline-block text-left'>
         {({ open }) => (
@@ -50,7 +50,7 @@ const MobileMenu = () => {
                       {({ active }) => (
                         <a
                           href={link.href}
-                          className={`flex px-4 py-3 rounded-xl ${
+                          className={`flex px-4 py-3 text-xl font-medium rounded-xl ${
                             active
                               ? "bg-green-500 text-white"
                               : "bg-white text-black"
@@ -66,7 +66,7 @@ const MobileMenu = () => {
                       {({ active }) => (
                         <button
                           type='submit'
-                          className={`text-red-600 flex w-full justify-center px-4 py-3 rounded-xl ${
+                          className={`text-red-600 flex w-full justify-center px-4 py-3 text-xl font-medium rounded-xl ${
                             active ? "bg-red-600 text-white" : "bg-red-50 "
                           }`}>
                           SIGN OUT
