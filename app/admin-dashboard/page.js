@@ -87,7 +87,7 @@ const AdminDashboard = async () => {
       {/* <pre>{JSON.stringify(allUsers, null, 2)}</pre> */}
       <div className='flex justify-center pt-3'>
         <Link href='/members' className='transition-colors duration-500 ease-in-out bg-green-800 hover:bg-white text-white hover:text-green-800 p-2 rounded-full shadow-md shadow-orange-800'>
-          <TbUserEdit className='text-2xl font-bold ' />
+          <TbUserEdit className='text-4xl font-bold ' />
         </Link>
       </div>
       {profile && profile.is_admin ? (
