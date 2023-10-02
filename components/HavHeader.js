@@ -7,6 +7,7 @@ import LogoComponent from "./LogoComponent";
 import SignOut from "./action-buttons/SignoutBtn";
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
+import DesktopMenu from "./DesktopMenu";
 
 const HavHeader = () => {
   const supabase = createClientComponentClient();
@@ -40,7 +41,7 @@ const HavHeader = () => {
   }, [getProfile]);
 
   return (
-    <div className='bg-green-900 px-4 py-3 sticky top-0 z-50'>
+    <div className='bg-green-900 pl-4 pr-2 py-3 sticky top-0 z-50'>
       <div className=' flex items-center justify-between max-w-5xl mx-auto text-white'>
         <LogoComponent classnames='w-12 h-12' />
         {is_admin && (
@@ -57,15 +58,9 @@ const HavHeader = () => {
           </>
         )}
 
-        <SignOut />
-
-        <div>
-          <MobileMenu />
-
-         
-
-      
-        </div>
+        {/* <SignOut /> */}
+ <MobileMenu />
+       <DesktopMenu />
       </div>
     </div>
   );

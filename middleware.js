@@ -23,5 +23,5 @@ export async function middleware(req) {
 }
 
 export const config = {
-  matcher: ["/", "/account", "/coop-data", "/soft-loan", "/admin-dashboard, '/payment"],
+  matcher: ["/", "/account", "/coop-data", "/soft-loan", "/admin-dashboard", "/payment", '/members'],
 };
