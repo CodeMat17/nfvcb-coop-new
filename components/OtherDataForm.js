@@ -39,11 +39,11 @@ const OtherDataForm = ({ user_id }) => {
       setErrorMsg("IPPIS no. is required");
       return;
     }
-    if (ippis_no.length < 9) {
-      setErrorMsg("IPPIS no. cannot be less than 9 digits.");
+    if (ippis_no.length < 6) {
+      setErrorMsg("IPPIS no. cannot be less than 6 digits.");
       return;
     }
-    if (username.length > 5 || station || ippis_no.length > 8 || phone_no) {
+    if (username.length > 5 || station || ippis_no.length > 5 || phone_no) {
       try {
         setLoading(true);
         setErrorMsg(null);
@@ -134,7 +134,7 @@ const OtherDataForm = ({ user_id }) => {
       <input
         type='text'
         value={ippis_no}
-        maxLength={9}
+        maxLength={6}
         onChange={(e) => setIPPIS(e.target.value)}
         placeholder='Enter your IPPIS no.'
         className='px-3 py-2 rounded-xl text-[#D76F30] bg-gray-100 border shadow-md'

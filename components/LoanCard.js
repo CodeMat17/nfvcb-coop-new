@@ -182,7 +182,7 @@ const LoanCard = () => {
           <label className='text-sm'>IPPIS no.</label>
           <input
             type='text'
-            maxLength='9'
+            maxLength='6'
             value={ippis}
             onChange={(e) => setIPPIS(e.target.value)}
             placeholder='Enter your IPPIS no'
@@ -194,7 +194,7 @@ const LoanCard = () => {
           <button
             onClick={loanApplication}
             className='w-full bg-[#fee8da] text-[#D76F30] py-3 rounded-xl disabled:cursor-not-allowed disabled:bg-gray-200 disabled:text-gray-500'
-            disabled={ippis.length < 9}>
+            disabled={ippis.length < 6}>
             {waiting ? (
               <div className='flex items-center justify-center space-x-3'>
                 <AiOutlineLoading className='animate-spin font-medium text-2xl' />
