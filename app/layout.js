@@ -9,8 +9,30 @@ const urbanist = Urbanist({ subsets: ["latin"], weight: ["500"] });
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "NFVCB Coop",
+  title: "NFVCB Cooperative",
   description: "NFVCB Multi Purpose Thrift Society.",
+  openGraph: {
+    title: "NFVCB Cooperative",
+    description: "NFVCB Multi Purpose Thrift Society.",
+    siteName: "NFVCB Cooperative",
+    url: "https://nfvcb-coop-new.vercel.app",
+    images: [
+      {
+        url: "https://res.cloudinary.com/mctony17/image/upload/v1696342054/logos/xrf2dgxhhfmjhvr4yzlg.png",
+        width: 400,
+        height: 400,
+      },
+      {
+        url: "https://res.cloudinary.com/mctony17/image/upload/v1696342054/logos/xrf2dgxhhfmjhvr4yzlg.png",
+        width: 800,
+        height: 800,
+        alt: "NFVCB Coop Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+    authors: ["NFVCB COOP"],
+  },
 };
 
 export default async function RootLayout({ children }) {
