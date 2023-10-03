@@ -5,7 +5,7 @@ const ApprovedLoans = ({ admin_name, approved }) => {
     <div>
       {approved && approved.length < 1 ? (
         <div className='text-center py-6'>
-          No loan application at the moment.
+          No approved loan at the moment.
         </div>
       ) : (
         <>
