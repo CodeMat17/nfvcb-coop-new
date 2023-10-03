@@ -6,15 +6,15 @@ import { useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 import { PaystackButton } from "react-paystack";
 
-const OtherPayment = ({ msg }) => {
+const OtherPayment = ({ msg, user_name, user_email, user_phone }) => {
   const [no_loan, setNoLoan] = useState(true);
   const router = useRouter();
 
   const publicKey = process.env.NEXT_PUBLIC_SUPABASE_PAYSTACK_KEY;
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState(user_name);
+  const [email, setEmail] = useState(user_email);
   const [loanAmount, setAmount] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState(user_phone);
   const [loading, setLoading] = useState(false);
 
   const text = loanAmount;
@@ -79,27 +79,30 @@ const OtherPayment = ({ msg }) => {
               <label className='text-sm'>Name</label>
               <input
                 type='text'
+                disabled
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className='px-3 py-2 bg-gray-200 rounded-xl'
+                className='px-3 py-2 bg-gray-200 text-gray-500 rounded-xl'
               />
             </div>
             <div className='flex flex-col'>
               <label className='text-sm'>Email</label>
               <input
                 type='email'
+                disabled
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className='px-3 py-2 bg-gray-200 rounded-xl'
+                className='px-3 py-2 bg-gray-200 text-gray-500 rounded-xl'
               />
             </div>
             <div className='flex flex-col'>
               <label className='text-sm'>Phone</label>
               <input
                 type='tel'
+                disabled
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className='px-3 py-2 bg-gray-200 rounded-xl'
+                className='px-3 py-2 bg-gray-200 text-gray-500 rounded-xl'
               />
             </div>
             <div className='relative flex flex-col'>

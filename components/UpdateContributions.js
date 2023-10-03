@@ -28,7 +28,11 @@ const UpdateContributions = ({ user_id, monthly, total }) => {
       setLoading(true);
       const { data, error } = await supabaseRole
         .from("loans")
-        .update({ monthly_contribution, total_contributions })
+        .update({
+          monthly_contribution,
+          total_contributions,
+          as_at: new Date(),
+        })
         .eq("id", id);
 
       if (error) {

@@ -57,7 +57,7 @@ const LoginPage = () => {
         {/* <GoogleSigninButton /> */}
 
         {signUp ? (
-          <p className='text-center text-sm pt-2'>
+          <p className='text-center pt-2'>
             already a user?{" "}
             <span
               onClick={() => setSignUp(!signUp)}
@@ -66,7 +66,7 @@ const LoginPage = () => {
             </span>{" "}
           </p>
         ) : (
-          <p className='text-center text-sm pt-2'>
+          <p className='text-center pt-2'>
             a new user?{" "}
             <span
               onClick={() => setSignUp(!signUp)}

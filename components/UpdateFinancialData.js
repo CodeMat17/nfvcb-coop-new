@@ -34,6 +34,7 @@ const UpdateFinancialData = ({
           joined_on,
           monthly_contribution,
           total_contributions,
+          as_at: new Date(),
         })
         .eq("id", id);
 

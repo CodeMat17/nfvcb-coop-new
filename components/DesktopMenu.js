@@ -13,7 +13,7 @@ const DesktopMenu = () => {
     <div className='hidden md:flex space-x-2'>
       {links.map((link) => (
         <Link
-          href='/'
+          href={link.href}
           key={link.href}
           className='transition-colors duration-500 ease-in-out bg-green-800 hover:bg-green-700 px-4 py-2 rounded-xl '>
           {link.label}

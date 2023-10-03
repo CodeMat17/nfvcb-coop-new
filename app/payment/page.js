@@ -29,11 +29,21 @@ const PaymentPage = async () => {
       {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       {data.loan_status === "inactive" && (
         <OtherPayment
+          user_name={data?.username}
+          user_email={data?.email}
+          user_phone={data?.phone_no}
           msg='You do not have a soft loan running at the moment.'
         />
       )}
 
-      {data.loan_status === "processing" && <OtherPayment msg='Your soft loan application is yet to be approved. Kindly contact the admin.' />}
+      {data.loan_status === "processing" && (
+        <OtherPayment
+          user_name={data?.username}
+          user_email={data?.email}
+          user_phone={data?.phone_no}
+          msg='Your soft loan application is yet to be approved. Kindly contact the admin.'
+        />
+      )}
 
       {data.loan_status === "active" && (
         <PaystackPage

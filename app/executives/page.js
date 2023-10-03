@@ -40,13 +40,27 @@ const executives = [
   },
   {
     id: 6,
-    position: "TREASURER",
+    position: "ASST. FIN. SEC.",
     name: "Mary Eseoghene",
     tel: 2348035672400,
     img: "",
   },
   {
     id: 7,
+    position: "TREASURER",
+    name: "Mary Eseoghene",
+    tel: 2348035672400,
+    img: "",
+  },
+  {
+    id: 8,
+    position: "PRO",
+    name: "Mary Eseoghene",
+    tel: 2348035672400,
+    img: "",
+  },
+  {
+    id: 9,
     position: "AUDITOR",
     name: "Mary Eseoghene",
     tel: 2348035672400,
@@ -64,7 +78,7 @@ const Executives = () => {
         {executives.map((exec) => (
           <div
             key={exec.id}
-            className='flex flex-col items-center justify-center bg-green-100 rounded-xl overflow-hidden'>
+            className='flex flex-col items-center justify-center bg-gradient-to-tr from-green-100 to-red-100 rounded-xl overflow-hidden'>
             {exec.img ? (
               <div className='px-4 pt-3 pb-2'>
                 <div className='relative   w-[123px] h-[123px] rounded-full overflow-hidden'>

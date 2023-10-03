@@ -21,10 +21,11 @@ const DataPage = () => {
   const [loan_status, setStatus] = useState(null);
   const [confirmed, setConfirmed] = useState(false);
   const [loanAmount, setLoansAmount] = useState(null);
-   const [joined_on, setJoined] = useState(null);
+  const [joined_on, setJoined] = useState(null);
   const [approved_on, setApproved] = useState(null);
   const [monthly_contribution, setMonthly] = useState(null);
   const [total_contributions, setTotalContributions] = useState(null);
+  const [as_at, setAsAt] = useState(null)
 
   const getProfile = useCallback(async () => {
     try {
@@ -32,7 +33,7 @@ const DataPage = () => {
       let { data, error, status } = await supabase
         .from("profiles")
         .select(
-          `loan_status, station, username, confirmed, loans(id, amount, joined_on, total_contributions, monthly_contribution, approved_on)`
+          `loan_status, station, username, confirmed, loans(id, amount, joined_on, total_contributions, monthly_contribution, approved_on, as_at)`
         )
         .single();
 
@@ -47,9 +48,10 @@ const DataPage = () => {
         setConfirmed(data.confirmed);
         setLoansAmount(data.loans.amount);
         setJoined(data.loans.joined_on);
-        setApproved(data.loans.approved_on)
+        setApproved(data.loans.approved_on);
         setMonthly(data.loans.monthly_contribution);
         setTotalContributions(data.loans.total_contributions);
+        setAsAt(data.loans.as_at)
       }
     } catch (error) {
       console.log("error loading data: ", error.message);
@@ -75,7 +77,7 @@ const DataPage = () => {
       <h1 className='text-2xl text-center font-medium tracking-wider text-[#D76F30]'>
         Hello,
       </h1>
-
+      {/* <pre>{ JSON.stringify(data.loans.as_at, null, 2)}</pre> */}
       <div className='max-w-md mx-auto'>
         {confirmed ? (
           <div>
@@ -112,14 +114,21 @@ const DataPage = () => {
 
               <div className='py-4'>
                 <p className='text-lg font-medium'>Total Contributions</p>
-                <div className='flex justify-start  '>
+                <div className='flex justify-start relative'>
                   <div className='p-1 shadow-md border rounded-full bg-green-100'>
-                    <div className='text-xl font-bold tracking-wide px-4 py-2 shadow-md rounded-full bg-[#f0dbcd] text-[#D76F30]'>
+                    <div className=' text-xl font-bold tracking-wide px-4 py-2 shadow-md rounded-full bg-[#f0dbcd] text-[#D76F30]'>
                       <FormatedCurrency amount={total_contributions} />
                     </div>
                   </div>
+                  <p className='absolute -bottom-6 left-3 text-sm text-gray-500'>
+                    as at{" "}
+                    <span className='pl-1'>
+                      {dayjs(as_at).format("MMM, YYYY")}
+                    </span>
+                  </p>
                 </div>
-                <div className='mt-6'>
+
+                <div className='mt-10'>
                   <p>
                     Current monthly contribution:
                     <span className='font-bold'>
