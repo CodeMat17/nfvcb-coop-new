@@ -4,6 +4,7 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 import { HiMail } from "react-icons/hi";
 import { HiMiniLockClosed } from "react-icons/hi2";
 
@@ -15,6 +16,7 @@ const Signin = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -75,22 +77,30 @@ const Signin = () => {
           </span>
         </div>
 
-        <div className='relative'>
-          <input
-            type='password'
-            name='password'
-            id='password'
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            pattern='.{6,}'
-            placeholder='Password '
-            className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-xl py-2 pl-10 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
-          />
-          <HiMiniLockClosed className='absolute top-3 left-3 text-lg text-green-600' />
-          <span className='hidden text-xs text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block'>
-            Password must be at least 6 chars long
-          </span>
+        <div className='flex items-start gap-x-4'>
+          <div className='relative w-full'>
+            <input
+              type={showPassword ? "text" : "password"}
+              name='password'
+              id='password'
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              pattern='.{6,}'
+              placeholder='Password '
+              className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-xl py-2 pl-10 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
+            />
+            <HiMiniLockClosed className='absolute top-3 left-3 text-lg text-green-600' />
+
+            <span className='hidden text-xs text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block'>
+              Password must be at least 6 chars long
+            </span>
+          </div>
+          <div
+            onClick={() => setShowPassword(!showPassword)}
+            className=' transition-all duration-500 cursor-pointer mt-3 text-2xl text-[#D76F30]'>
+            {showPassword ? <FiEyeOff /> : <FiEye />}
+          </div>
         </div>
 
         <div className='pt-2'>

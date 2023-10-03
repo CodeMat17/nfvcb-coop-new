@@ -7,6 +7,7 @@ import { AiOutlineLoading } from "react-icons/ai";
 import { HiMail } from "react-icons/hi";
 import { HiMiniLockClosed } from "react-icons/hi2";
 import { ImEyeBlocked } from "react-icons/im";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 const Signup = ({result}) => {
   const supabase = createClientComponentClient();
@@ -20,6 +21,7 @@ const Signup = ({result}) => {
   const [passwordMatch, setPasswordMatch] = useState(true);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   // if (email.match(patternReg)) {
   //   console.log("valid");
@@ -99,45 +101,54 @@ const Signup = ({result}) => {
           </span>
         </div>
 
-        <div className='relative'>
-          <input
-            type='password'
-            name='password'
-            id='password'
-            required
-            value={password}
-            onChange={handlePasswordChange}
-            pattern='.{6,}'
-            placeholder='Password '
-            className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-xl py-2 pl-10 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
-          />
-          <HiMiniLockClosed className='absolute top-3 left-3 text-lg text-green-600' />
-          <span className='hidden text-xs text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block'>
-            Password must be at least 6 chars long
-          </span>
-        </div>
+          <div className='relative w-full'>
+            <input
+              type={showPassword ? "text" : "password"}
+              name='password'
+              id='password'
+              required
+              value={password}
+              onChange={handlePasswordChange}
+              pattern='.{6,}'
+              placeholder='Password '
+              className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-xl py-2 pl-10 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
+            />
+            <HiMiniLockClosed className='absolute top-3 left-3 text-lg text-green-600' />
+            <span className='hidden text-xs text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block'>
+              Password must be at least 6 chars long
+            </span>
+          </div>
+         
+       
 
-        <div className='relative'>
-          <input
-            type='password'
-            name='confirmpassword'
-            id='confirmpassword'
-            required
-            value={confirmPassword}
-            onChange={handleConfirmPasswordChange}
-            pattern='.{6,}'
-            placeholder='Confirm Password '
-            className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-xl py-2 pl-10 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
-          />
-          <ImEyeBlocked className='absolute top-3 left-3 text-lg text-green-600' />
-          <span className='hidden text-xs text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block'>
-            Password must be at least 6 chars long
-          </span>
-          {!passwordMatch && (
-            <p className='text-red-500 text-xs italic'>
-              Passwords do not match.
-            </p>
-          )}
+        <div className='flex items-start gap-x-4'>
+          <div className='relative w-full'>
+            <input
+              type={showPassword ? "text" : "password"}
+              name='confirmpassword'
+              id='confirmpassword'
+              required
+              value={confirmPassword}
+              onChange={handleConfirmPasswordChange}
+              pattern='.{6,}'
+              placeholder='Confirm Password '
+              className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-xl py-2 pl-10 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
+            />
+            {/* <ImEyeBlocked className='absolute top-3 left-3 text-lg text-green-600' /> */}
+            <span className='hidden text-xs text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block'>
+              Password must be at least 6 chars long
+            </span>
+            {!passwordMatch && (
+              <p className='text-red-500 text-xs italic'>
+                Passwords do not match.
+              </p>
+            )}
+          </div>
+          <div
+            onClick={() => setShowPassword(!showPassword)}
+            className=' transition-all duration-500 cursor-pointer mt-3 text-2xl text-[#D76F30]'>
+            {showPassword ? <FiEyeOff /> : <FiEye />}
+          </div>
         </div>
 
         <div className='pt-2'>
