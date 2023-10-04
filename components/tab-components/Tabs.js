@@ -24,7 +24,7 @@ export default function TabsComponent({ unconfirmed, admin_name, loans, approved
                 "ring-white ring-opacity-60 ring-offset-2 ring-offset-[#D76F30] focus:outline-none focus:ring-2",
                 selected
                   ? "bg-white shadow"
-                  : " hover:bg-white/[0.12] hover:text-white"
+                  : " hover:bg-white/[0.12] hover:text-gray-500"
               )
             }>
             Unconfirmed
@@ -37,7 +37,7 @@ export default function TabsComponent({ unconfirmed, admin_name, loans, approved
                 "ring-white ring-opacity-60 ring-offset-2 ring-offset-purple-800 focus:outline-none focus:ring-2",
                 selected
                   ? "text-purple-800 bg-white shadow"
-                  : "text-[#D76F30] hover:bg-white/[0.12] hover:text-white"
+                  : "text-[#D76F30] hover:bg-white/[0.12] hover:text-gray-500"
               )
             }>
             Loans
@@ -50,7 +50,7 @@ export default function TabsComponent({ unconfirmed, admin_name, loans, approved
                 "ring-white ring-opacity-60 ring-offset-2 ring-offset-green-800 focus:outline-none focus:ring-2",
                 selected
                   ? "text-green-800 bg-white shadow"
-                  : "text-[#D76F30] hover:bg-white/[0.12] hover:text-white"
+                  : "text-[#D76F30] hover:bg-white/[0.12] hover:text-gray-500"
               )
             }>
             Approved

@@ -23,6 +23,8 @@ const AccountPage = async () => {
     redirect("/coop-data");
   }
 
+ 
+
     return (
       <div className='px-4 py-12 min-h-screen w-full'>
         <div>
