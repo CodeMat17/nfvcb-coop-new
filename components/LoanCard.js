@@ -33,6 +33,7 @@ const LoanCard = () => {
   const [selected, setSelected] = useState(loanAmount[0]);
   const [ippis_no, setIPPISNo] = useState("");
   const [ippis, setIPPIS] = useState("");
+  const [errorMsg, setErrorMsg] = useState(false);
 
   const getProfile = useCallback(async () => {
     try {
@@ -61,50 +62,58 @@ const LoanCard = () => {
     getProfile();
   }, [getProfile]);
 
+  console.log("ippis no: ", ippis_no);
+  console.log("ippis: ", ippis);
+
   const loanApplication = async () => {
-    try {
-      setWaiting(true);
-      const { data, error: error1 } = await supabase
-        .from("loans")
-        .update({
-          amount: selected.amount,
-          status: true,
-          applied_on: new Date(),
-        })
-        .eq("id", id);
+    setErrorMsg(false);
+    if (ippis_no === ippis) {
+      try {
+        setWaiting(true);
+        const { data, error: error1 } = await supabase
+          .from("loans")
+          .update({
+            amount: selected.amount,
+            status: true,
+            applied_on: new Date(),
+          })
+          .eq("id", id);
 
-      if (error1) {
-        throw error1;
+        if (error1) {
+          throw error1;
+        }
+
+        const { data: data2, error: error2 } = await supabase
+          .from("profiles")
+          .update({
+            loan_status: "processing",
+          })
+          .eq("id", id)
+          .select();
+
+        if (error2) {
+          throw error2;
+        }
+
+        if (data2) {
+          toast.success(`Loan application sent successfully`, {
+            duration: 5000,
+            position: "top-center",
+            // Styling
+            style: {},
+            className: "",
+          });
+
+          router.refresh();
+          router.back();
+        }
+      } catch (error) {
+        console.log("Something went wrong!: ", error.message);
+      } finally {
+        setWaiting(false);
       }
-
-      const { data: data2, error: error2 } = await supabase
-        .from("profiles")
-        .update({
-          loan_status: "processing",
-        })
-        .eq("id", id)
-        .select();
-
-      if (error2) {
-        throw error2;
-      }
-
-      if (data2) {
-        toast.success(`Loan application sent successfully`, {
-          duration: 5000,
-          position: "top-center",
-          // Styling
-          style: {},
-          className: "",
-        });
-
-        router.refresh();
-        router.back();
-      }
-    } catch (error) {
-      console.log("Something went wrong!: ", error.message);
-    } finally {
-      setWaiting(false);
+    } else {
+      setErrorMsg(true);
     }
   };
 
@@ -123,7 +132,11 @@ const LoanCard = () => {
       <h1 className='text-center text-2xl text-[#D76F30]'>
         Enter loan details
       </h1>
-
+      {errorMsg && (
+        <p className='text-red-500 text-sm text-center mt-3'>
+          You entered an incorrect IPPIP no.
+        </p>
+      )}
       <div className='py-6 max-w-sm mx-auto space-y-4'>
         <div>
           <label className='text-sm'>Amount</label>

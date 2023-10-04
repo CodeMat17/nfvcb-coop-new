@@ -1,85 +1,37 @@
-"use client";
-
 import FormatedCurrency from "@/components/FormatedCurrency";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import dayjs from "dayjs";
 import { Macondo } from "next/font/google";
+import { cookies } from "next/headers";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
-import { AiOutlineLoading } from "react-icons/ai";
 import { IoMdContact } from "react-icons/io";
 
 const macondo = Macondo({ subsets: ["latin"], weight: ["400"] });
 
 export const revalidate = 0;
 
-const DataPage = () => {
-  const supabase = createClientComponentClient();
-  const [loading, setLoading] = useState(true);
-  const [username, setUsername] = useState(null);
-  const [station, setStation] = useState(null);
-  const [loan_status, setStatus] = useState(null);
-  const [confirmed, setConfirmed] = useState(false);
-  const [loanAmount, setLoansAmount] = useState(null);
-  const [joined_on, setJoined] = useState(null);
-  const [approved_on, setApproved] = useState(null);
-  const [monthly_contribution, setMonthly] = useState(null);
-  const [total_contributions, setTotalContributions] = useState(null);
-  const [as_at, setAsAt] = useState(null)
+const DataPage = async () => {
+  const supabase = createServerComponentClient({ cookies });
 
-  const getProfile = useCallback(async () => {
-    try {
-      setLoading(true);
-      let { data, error, status } = await supabase
-        .from("profiles")
-        .select(
-          `loan_status, station, username, confirmed, loans(id, amount, joined_on, total_contributions, monthly_contribution, approved_on, as_at)`
-        )
-        .single();
+  const { data, error, status } = await supabase
+    .from("profiles")
+    .select(
+      `loan_status, station, username, confirmed, loans(id, amount, joined_on, total_contributions, monthly_contribution, approved_on, as_at)`
+    )
+    .single();
 
-      if (error && status !== 406) {
-        throw error;
-      }
-
-      if (data) {
-        setStatus(data.loan_status);
-        setUsername(data.username);
-        setStation(data.station);
-        setConfirmed(data.confirmed);
-        setLoansAmount(data.loans.amount);
-        setJoined(data.loans.joined_on);
-        setApproved(data.loans.approved_on);
-        setMonthly(data.loans.monthly_contribution);
-        setTotalContributions(data.loans.total_contributions);
-        setAsAt(data.loans.as_at)
-      }
-    } catch (error) {
-      console.log("error loading data: ", error.message);
-    } finally {
-      setLoading(false);
-    }
-  }, [supabase]);
-
-  useEffect(() => {
-    getProfile();
-  }, [getProfile]);
-
-  if (loading) {
-    return (
-      <div className='px-4 py-20 min-h-screen w-full flex flex-col items-center space-y-4'>
-        <AiOutlineLoading className='text-3xl font-bold animate-spin text-[#D76F30]' />
-        <p className='text-[#D76F30]'>Please wait</p>
-      </div>
-    );
+  if (error && status !== 406) {
+    throw error;
   }
+
   return (
     <div className='w-full px-4 py-12 min-h-screen'>
       <h1 className='text-2xl text-center font-medium tracking-wider text-[#D76F30]'>
         Hello,
       </h1>
-      {/* <pre>{ JSON.stringify(data.loans.as_at, null, 2)}</pre> */}
+
       <div className='max-w-md mx-auto'>
-        {confirmed ? (
+        {data?.confirmed ? (
           <div>
             <div className='border mt-6 pt-2 pb-1 px-1 bg-green-600 rounded-xl shadow-md'>
               <p className='text-center text-white tracking-widest'>
@@ -93,22 +45,21 @@ const DataPage = () => {
                 <div className='max-w-[80%] '>
                   <section className={macondo.className}>
                     <h2 className=' text-xl font-medium block truncate text-[#D76F30]'>
-                      {username}
+                      {data?.username}
                     </h2>
                   </section>
 
                   <div className='text-gray-400 leading-4'>
-                    <p>{station}</p>
+                    <p>{data?.station}</p>
                   </div>
                 </div>
               </div>
             </div>
-
             <div className='mt-6'>
               <p className='text-sm'>
                 Date joined:
                 <span className='pl-1'>
-                  {dayjs(joined_on).format("MMM, DD, YYYY")}
+                  {dayjs(data?.loans?.joined_on).format("MMM, DD, YYYY")}
                 </span>
               </p>
 
@@ -117,13 +68,16 @@ const DataPage = () => {
                 <div className='flex justify-start relative'>
                   <div className='p-1 shadow-md border rounded-full bg-green-100'>
                     <div className=' text-xl font-bold tracking-wide px-4 py-2 shadow-md rounded-full bg-[#f0dbcd] text-[#D76F30]'>
-                      <FormatedCurrency amount={total_contributions} />
+                      <FormatedCurrency
+                        amount={data?.loans?.total_contributions}
+                      />
                     </div>
                   </div>
+
                   <p className='absolute -bottom-6 left-3 text-sm text-gray-500'>
-                    as at{" "}
+                    as at
                     <span className='pl-1'>
-                      {dayjs(as_at).format("MMM, YYYY")}
+                      {dayjs(data?.loans?.as_at).format("MMM, YYYY")}
                     </span>
                   </p>
                 </div>
@@ -132,7 +86,9 @@ const DataPage = () => {
                   <p>
                     Current monthly contribution:
                     <span className='font-bold'>
-                      <FormatedCurrency amount={monthly_contribution} />
+                      <FormatedCurrency
+                        amount={data?.loans?.monthly_contribution}
+                      />
                     </span>
                   </p>
                 </div>
@@ -142,48 +98,51 @@ const DataPage = () => {
             <div>
               <p className='text-lg font-medium'>
                 Loan Status:{" "}
-                {loan_status === "active" && (
+                {data?.loan_status === "active" && (
                   <span className='text-pink-600 font-medium'>ACTIVE</span>
                 )}
-                {loan_status === "processing" && (
+                {data?.loan_status === "processing" && (
                   <span className='text-yellow-600 font-medium'>
                     PROCESSING
                   </span>
                 )}
-                {loan_status === "inactive" && (
+                {data?.loan_status === "inactive" && (
                   <span className=' font-medium'>INACTIVE</span>
                 )}
               </p>
-              {loan_status === "inactive" && (
+              {data?.loan_status === "inactive" && (
                 <p>Soft loan eligibility: Yes - ₦50,000</p>
               )}
             </div>
 
-            {loan_status === "active" && (
+            {data?.loan_status === "active" && (
               <div className='my-8 bg-pink-200 p-4 rounded-xl'>
                 <p className='text-2xl text-pink-700 text-center'>
                   You are currently on loan
                 </p>
                 <p className='pt-4 text-center'>
                   Amount borrowed -{" "}
-                  <span className='text-2xl'>{loanAmount}</span>
+                  <span className='text-2xl'>{data?.loans?.amount}</span>
                 </p>
                 <p className='text-center'>
-                  Approved on: {dayjs(approved_on).format("MMM DD, YYYY")}
+                  Approved on:{" "}
+                  {dayjs(data?.loans?.approved_on).format("MMM DD, YYYY")}
                 </p>
                 <p className='text-center'>Loan lifespan: 3 months</p>
               </div>
             )}
-            {loan_status === "processing" && (
+
+            {data?.loan_status === "processing" && (
               <div className='my-8 py-4 bg-yellow-100 text-yellow-700 p-4 rounded-xl'>
                 <p className=' text-center'>
                   Your loan application of{" "}
-                  <span className='text-2xl'>{loanAmount}</span> is currently
-                  being processed. Kindly hold on.
+                  <span className='text-2xl'>{data?.loans?.amount}</span> is
+                  currently being processed. Kindly hold on.
                 </p>
               </div>
             )}
-            {loan_status === "inactive" && (
+
+            {data?.loan_status === "inactive" && (
               <div className='py-8 w-full'>
                 <Link href='/soft-loan'>
                   <p className='w-full text-center p-3 transition-colors duration-500 bg-[#D76F30] hover:bg-[#ab480b] rounded-xl text-white'>
@@ -197,7 +156,7 @@ const DataPage = () => {
           <div className='py-8'>
             <h1 className='text-center'>
               <span className='text-xl text-purple-900 font-medium '>
-                {username}
+                {data?.username}
               </span>
               , kindly wait for membership confirmation and data upload.
             </h1>
