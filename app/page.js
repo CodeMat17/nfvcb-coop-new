@@ -7,7 +7,7 @@ export default function Home() {
       <div className=' pb-4 max-w-sm mx-auto'>
         <LogoComponent classnames='w-[72px] h-[72px] ' />
      
-           <h1 className='text-2xl font-bold text-[#D76F30]'>
+           <h1 className='mt-2 text-2xl font-bold text-[#D76F30]'>
         NFVCB Multipurpose Cooperative Society Ltd
       </h1>
       <h2 className="text-xl font font-semibold py-4 tracking-widest">Welcome.</h2>
