@@ -49,12 +49,12 @@ const SoftLoan = () => {
             pointer-events-none inline-block h-[34px] w-[34px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
                 />
               </Switch>
-              <p className={`py-2 ${enabled ? "text-[#D76F30]" : ""}`}>
-                {enabled ? "I accept" : "Tap the button to accept T&C"}{" "}
+              <p className={`py-2  w-full text-center ${enabled ? "text-[#D76F30]" : ""}`}>
+                {enabled ? "I accept" : "Tap the button to accept T&C"}
               </p>
             </div>
 
-            <div className='py- flex items-center justify-around space-x-6 sm:space-x-12 md:space-x-20'>
+            <div className='flex items-center justify-around space-x-6 sm:space-x-12 md:space-x-20'>
               {enabled ? (
                 <button
                   onClick={() => setLoanCard(!loanCard)}
