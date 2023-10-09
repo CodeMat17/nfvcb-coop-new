@@ -37,7 +37,7 @@ const LoginPage = () => {
         </section> */}
       </div>
 
-      <div className='w-full mt-2 pt-4 pb-16 rounded-2xl px-4 max-w-sm sm:max-w-xs mx-auto space-y-2 transition-all duration-500'>
+      <div className='w-full mt-2 pt- pb-16 rounded-2xl px-4 max-w-sm sm:max-w-xs mx-auto space-y-2 transition-all duration-500'>
         {signUp ? <Signup result={setSignupDone} /> : <Signin />}
 
         {/* <div className='flex justify-center text-green-400'>
