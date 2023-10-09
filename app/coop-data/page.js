@@ -67,37 +67,34 @@ const DataPage = async () => {
               </div>
             </div>
 
-              <div className='py-4'>
-                <p className='text-lg font-medium'>Total Contributions</p>
-                <div className='flex justify-start relative'>
-                  <div className='p-1 shadow-md border rounded-full bg-green-100'>
-                    <div className=' text-xl font-bold tracking-wide px-4 py-2 shadow-md rounded-full bg-[#f0dbcd] text-[#D76F30]'>
-                      <FormatedCurrency
-                        amount={data?.loans?.total_contributions}
-                      />
-                    </div>
+            <div className='py-4'>
+              <p className='text-lg font-medium'>
+                Total Contributions as at{" "}
+                <span className=''>
+                  {dayjs(data?.loans?.as_at).format("MMM, YYYY")}
+                </span>
+              </p>
+              <div className='flex justify-start relative'>
+                <div className='p-1 shadow-md border rounded-full bg-green-100'>
+                  <div className=' text-xl font-bold tracking-wide px-4 py-2 shadow-md rounded-full bg-[#f0dbcd] text-[#D76F30]'>
+                    <FormatedCurrency
+                      amount={data?.loans?.total_contributions}
+                    />
                   </div>
-
-                  <p className='absolute -bottom-6 left-3 text-sm text-gray-500'>
-                    as at
-                    <span className='pl-1'>
-                      {dayjs(data?.loans?.as_at).format("MMM, YYYY")}
-                    </span>
-                  </p>
-                </div>
-
-                <div className='mt-10'>
-                  <p>
-                    Current monthly contribution:
-                    <span className='font-bold'>
-                      <FormatedCurrency
-                        amount={data?.loans?.monthly_contribution}
-                      />
-                    </span>
-                  </p>
                 </div>
               </div>
-          
+
+              <div className='mt-6'>
+                <p>
+                  Current monthly contribution:
+                  <span className='font-bold'>
+                    <FormatedCurrency
+                      amount={data?.loans?.monthly_contribution}
+                    />
+                  </span>
+                </p>
+              </div>
+            </div>
 
             <div>
               <p className='text-lg font-medium'>
