@@ -1,12 +1,13 @@
 import FormatedCurrency from "@/components/FormatedCurrency";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import dayjs from "dayjs";
-import { Macondo } from "next/font/google";
+import { Autour_One } from "next/font/google";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import { IoMdContact } from "react-icons/io";
+import { MdLocationOn, MdOutlineCalendarMonth } from "react-icons/md";
 
-const macondo = Macondo({ subsets: ["latin"], weight: ["400"] });
+const autour = Autour_One({ subsets: ["latin"], weight: ["400"] });
 
 export const revalidate = 0;
 
@@ -33,35 +34,38 @@ const DataPage = async () => {
       <div className='max-w-md mx-auto'>
         {data?.confirmed ? (
           <div>
-            <div className='border mt-6 pt-2 pb-1 px-1 bg-green-600 rounded-xl shadow-md'>
-              <p className='text-center text-white tracking-widest'>
-                Cooperator
-              </p>
-              <div className='pr-2 py-2 flex items-center space-x-2 bg-purple-50 rounded-b-xl overflow-hidden mt-1'>
-                <div className='max-w-[20%] '>
+            <div className=' mt-6 pt-2 pb-1 px-1 bg-green-600 rounded-xl shadow-md'>
+              <div className='flex items-center justify-center gap-2'>
+                <IoMdContact size={30} className='text-[#D76F30]' />
+                <p className='text-center text-white tracking-widest'>
+                  Cooperator
+                </p>
+              </div>
+
+              <div className='p-4 bg-purple-50 rounded-b-xl overflow-hidden mt-1'>
+                {/* <div className='max-w-[20%] '>
                   <IoMdContact size={70} className='text-[#D76F30]' />
+                </div> */}
+
+                <h2
+                  className={`${autour.className} text-xl font-medium block truncate text-[#D76F30]`}>
+                  {data?.username}
+                </h2>
+                <div className='flex items-center gap-2 text-gray-400'>
+                  <MdLocationOn />
+                  <p>{data?.station}</p>
                 </div>
-
-                <div className='max-w-[80%] '>
-                  <section className={macondo.className}>
-                    <h2 className=' text-xl font-medium block truncate text-[#D76F30]'>
-                      {data?.username}
-                    </h2>
-                  </section>
-
-                  <div className='text-gray-400 leading-4'>
-                    <p>{data?.station}</p>
-                  </div>
+                <div className='flex items-center gap-2 text-gray-400'>
+                  <MdOutlineCalendarMonth />
+                  <p>
+                    Joined{" "}
+                    <span className=''>
+                      {dayjs(data?.loans?.joined_on).format("MMM, DD, YYYY")}
+                    </span>
+                  </p>
                 </div>
               </div>
             </div>
-            <div className='mt-6'>
-              <p className='text-sm'>
-                Date joined:
-                <span className='pl-1'>
-                  {dayjs(data?.loans?.joined_on).format("MMM, DD, YYYY")}
-                </span>
-              </p>
 
               <div className='py-4'>
                 <p className='text-lg font-medium'>Total Contributions</p>
@@ -93,7 +97,7 @@ const DataPage = async () => {
                   </p>
                 </div>
               </div>
-            </div>
+          
 
             <div>
               <p className='text-lg font-medium'>
