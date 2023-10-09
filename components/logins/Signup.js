@@ -93,7 +93,7 @@ const Signup = ({result}) => {
             onChange={(e) => setEmail(e.target.value)}
             pattern='[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$'
             placeholder='Email '
-            className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-xl py-2 pl-10 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
+            className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-full py-2 pl-10 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
           />
           <HiMail className='absolute top-2.5 left-3 text-xl text-green-600' />
           <span className='hidden text-xs text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block'>
@@ -111,7 +111,7 @@ const Signup = ({result}) => {
               onChange={handlePasswordChange}
               pattern='.{6,}'
               placeholder='Password '
-              className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-xl py-2 pl-10 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
+              className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-full py-2 pl-10 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
             />
             <HiMiniLockClosed className='absolute top-3 left-3 text-lg text-green-600' />
             <span className='hidden text-xs text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block'>
@@ -132,7 +132,7 @@ const Signup = ({result}) => {
               onChange={handleConfirmPasswordChange}
               pattern='.{6,}'
               placeholder='Confirm Password '
-              className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-xl py-2 pl-10 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
+              className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-full py-2 pl-10 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
             />
             {/* <ImEyeBlocked className='absolute top-3 left-3 text-lg text-green-600' /> */}
             <span className='hidden text-xs text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block'>
@@ -155,7 +155,7 @@ const Signup = ({result}) => {
           <button
             onClick={handleSignUp}
             // type='submit'
-            className='w-full py-2.5 rounded-xl bg-[#D76F30] tracking-wide text-white group-invalid:pointer-events-none group-invalid:opacity-30'>
+            className='w-full py-2.5 rounded-full bg-[#D76F30] tracking-wide text-white group-invalid:pointer-events-none group-invalid:opacity-30'>
             {loading ? (
               <div className='flex items-center justify-center gap-x-4'>
                 <AiOutlineLoading className='text-2xl font-medium animate-spin' />{" "}

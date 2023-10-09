@@ -3,8 +3,6 @@
 import { Great_Vibes } from "next/font/google";
 import Image from "next/image";
 import { useState } from "react";
-import LogoComponent from "../LogoComponent";
-import GoogleSigninButton from "../action-buttons/GoogleSigninButton";
 import Signin from "./Signin";
 import Signup from "./Signup";
 
@@ -32,22 +30,14 @@ const LoginPage = () => {
   return (
     <div className=''>
       <div className='flex flex-col justify-center items-center'>
-        {/* <LogoComponent classnames='w-20 h-20' /> */}
-        {/* <h1 className='text-3xl text-center font-medium text-purple-800'>
-          NFVCB COOP.
-        </h1> */}
-        <section className={vibes.className}>
-          <p className='mt-6 text-center font-bold text-4xl tracking-widest text-[#D76F30]'>
+        {/* <section className={vibes.className}>
+          <p className='mt-6 text-center font-bold text-xl tracking-widest text-[#D76F30]'>
             {signUp ? "Sign Up" : "Sign In"}
           </p>
-        </section>
+        </section> */}
       </div>
 
-      <div className='w-full mt-2 py-4 rounded-2xl bg-whit shadow-m borde px-4 max-w-sm sm:max-w-xs mx-auto space-y-2 transition-all duration-500'>
-        <div className='flex justify-center pb-4'>
-          <LogoComponent classnames='w-20 h-20 ' />
-        </div>
-
+      <div className='w-full mt-2 pt-4 pb-16 rounded-2xl px-4 max-w-sm sm:max-w-xs mx-auto space-y-2 transition-all duration-500'>
         {signUp ? <Signup result={setSignupDone} /> : <Signin />}
 
         {/* <div className='flex justify-center text-green-400'>
@@ -57,28 +47,26 @@ const LoginPage = () => {
         {/* <GoogleSigninButton /> */}
 
         {signUp ? (
-          <p className='text-center pt-2'>
-            already a user?{" "}
-            <span
+          <>
+            <p className='text-center pt-6'>already a user?</p>
+
+            <button
               onClick={() => setSignUp(!signUp)}
-              className='text-green-600 font-medium tracking-wide cursor-pointer'>
+              className='w-full border border-[#D76F30] text-[#D76F30] px-4 py-2 rounded-full'>
               login
-            </span>{" "}
-          </p>
+            </button>
+          </>
         ) : (
-          <p className='text-center pt-2'>
-            a new user?{" "}
-            <span
+          <>
+            <p className='text-center pt-6'>a new user?</p>
+            <button
               onClick={() => setSignUp(!signUp)}
-              className='text-green-600 font-medium tracking-wide cursor-pointer'>
-              signup
-            </span>{" "}
-          </p>
+              className='w-full border border-[#D76F30] text-[#D76F30] px-4 py-2 rounded-full'>
+              Sign up
+            </button>
+          </>
         )}
       </div>
-      {/* <p>
-        by signing up, you agree to our terms of services and privacy policy.
-      </p> */}
     </div>
   );
 };

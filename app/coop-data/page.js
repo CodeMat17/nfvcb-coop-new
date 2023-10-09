@@ -49,7 +49,7 @@ const DataPage = async () => {
 
                 <h2
                   className={`${autour.className} text-xl font-medium block truncate text-[#D76F30]`}>
-                  {data?.username}
+                  {data?.username} Anthony
                 </h2>
                 <div className='flex items-center gap-2 text-gray-400'>
                   <MdLocationOn />
