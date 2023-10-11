@@ -8,6 +8,7 @@ import { HiMail } from "react-icons/hi";
 import { HiMiniLockClosed } from "react-icons/hi2";
 import { ImEyeBlocked } from "react-icons/im";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import GoogleSigninButton from "../action-buttons/GoogleSigninButton";
 
 const Signup = ({result}) => {
   const supabase = createClientComponentClient();
@@ -78,6 +79,8 @@ const Signup = ({result}) => {
 
   return (
     <>
+
+      {/* <GoogleSigninButton /> */}
       {errorMsg && (
         <p className='text-red-500 text-center text-sm'>{errorMsg}</p>
       )}

@@ -34,7 +34,7 @@ const DataPage = async () => {
       <div className='max-w-md mx-auto'>
         {data?.confirmed ? (
           <div>
-            <div className=' mt-6 pt-2 pb-1 px-1 bg-green-600 rounded-xl shadow-md'>
+            <div className=' mt-6 pt-2 pb-0.5 px-0.5 bg-green-600 rounded-xl shadow-lg'>
               <div className='flex items-center justify-center gap-2'>
                 <IoMdContact size={30} className='text-[#D76F30]' />
                 <p className='text-center text-white tracking-widest'>
@@ -42,7 +42,7 @@ const DataPage = async () => {
                 </p>
               </div>
 
-              <div className='p-4 bg-purple-50 rounded-b-xl overflow-hidden mt-1'>
+              <div className='p-4 bg-green-50 rounded-xl overflow-hidden mt-1'>
                 {/* <div className='max-w-[20%] '>
                   <IoMdContact size={70} className='text-[#D76F30]' />
                 </div> */}
@@ -75,8 +75,8 @@ const DataPage = async () => {
                 </span>
               </p>
               <div className='flex justify-start relative'>
-                <div className='p-1 shadow-md border rounded-full bg-green-100'>
-                  <div className=' text-xl font-bold tracking-wide px-4 py-2 shadow-md rounded-full bg-[#f0dbcd] text-[#D76F30]'>
+                <div className='p-1 shadow-md border rounded-full'>
+                  <div className=' text-xl font-bold tracking-wide px-4 py-2 shadow-md rounded-full bg-[#D76F30]/20 text-[#D76F30]'>
                     <FormatedCurrency
                       amount={data?.loans?.total_contributions}
                     />
