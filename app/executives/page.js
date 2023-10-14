@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa6";
 import { IoMdContact } from "react-icons/io";
+import Link from 'next/link'
 
 const executives = [
   {
@@ -74,7 +75,7 @@ const Executives = () => {
       <h1 className='text-center font-medium text-4xl md:text-5xl'>
         Coop. Executives
       </h1>
-      <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 grid-flow-row gap-3 md:gap-6 mt-8'>
+      <div className='py-8 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 grid-flow-row gap-3 md:gap-6 mt-8'>
         {executives.map((exec) => (
           <div
             key={exec.id}
@@ -91,14 +92,17 @@ const Executives = () => {
               </div>
             )}
 
-            <h1 className='text-xl text-green-600'>{exec.position}</h1>
-            <p>{exec.name}</p>
-            <a
+            <h1 className='text-2xl text-green-600'>{exec.position}</h1>
+            <p className='text-lg'>{exec.name}</p>
+            <div className='flex items-center justify-center gap-2'>
+            <Link
               href={`https://wa.me/${exec.tel}`}
               target='_blank'
               className='my-4'>
               <FaWhatsapp className='text-[#D76F30] text-3xl' />
-            </a>
+            </Link>
+            <p>Chat with me</p>
+            </div>
           </div>
         ))}
       </div>
