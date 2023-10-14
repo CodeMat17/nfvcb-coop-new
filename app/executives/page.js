@@ -102,7 +102,7 @@ const Executives = () => {
                 target='_blank'
                 className='my-4 flex items-center justify-center gap-3'>
                 <FaWhatsapp className='text-[#D76F30] text-3xl' />
-                <span>Chat with me</span>
+                <span>DM me</span>
               </Link>
             </div>
           </div>
