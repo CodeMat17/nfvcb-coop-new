@@ -96,62 +96,64 @@ const DataPage = async () => {
               </div>
             </div>
 
-            <div>
-              <p className='text-lg font-medium'>
-                Loan Status:{" "}
-                {data?.loan_status === "active" && (
-                  <span className='text-pink-600 font-medium'>ACTIVE</span>
-                )}
-                {data?.loan_status === "processing" && (
-                  <span className='text-yellow-600 font-medium'>
-                    PROCESSING
-                  </span>
-                )}
+            <div className='mt-6 px-4 pt-4 bg-white rounded-xl shadow-md'>
+              <div>
+                <p className='text-lg font-medium'>
+                  Loan Status:{" "}
+                  {data?.loan_status === "active" && (
+                    <span className='text-pink-600 font-medium'>ACTIVE</span>
+                  )}
+                  {data?.loan_status === "processing" && (
+                    <span className='text-yellow-600 font-medium'>
+                      PROCESSING
+                    </span>
+                  )}
+                  {data?.loan_status === "inactive" && (
+                    <span className=' font-medium'>INACTIVE</span>
+                  )}
+                </p>
                 {data?.loan_status === "inactive" && (
-                  <span className=' font-medium'>INACTIVE</span>
+                  <p>Soft loan eligibility: Yes - ₦50,000 max.</p>
                 )}
-              </p>
+              </div>
+
+              {data?.loan_status === "active" && (
+                <div className='my-8 bg-pink-200 p-4 rounded-xl'>
+                  <p className='text-2xl text-pink-700 text-center'>
+                    You are currently on loan
+                  </p>
+                  <p className='pt-4 text-center'>
+                    Amount borrowed -{" "}
+                    <span className='text-2xl'>{data?.loans?.amount}</span>
+                  </p>
+                  <p className='text-center'>
+                    Approved on:{" "}
+                    {dayjs(data?.loans?.approved_on).format("MMM DD, YYYY")}
+                  </p>
+                  <p className='text-center'>Loan lifespan: 3 months</p>
+                </div>
+              )}
+
+              {data?.loan_status === "processing" && (
+                <div className='my-8 py-4 bg-yellow-100 text-yellow-700 p-4 rounded-xl'>
+                  <p className=' text-center'>
+                    Your loan application of{" "}
+                    <span className='text-2xl'>{data?.loans?.amount}</span> is
+                    currently being processed. Kindly hold on.
+                  </p>
+                </div>
+              )}
+
               {data?.loan_status === "inactive" && (
-                <p>Soft loan eligibility: Yes - ₦50,000</p>
+                <div className='py-8 w-full'>
+                  <Link href='/soft-loan'>
+                    <p className='w-full text-center p-3 transition-colors duration-500 bg-[#D76F30] hover:bg-[#ab480b] rounded-xl text-white'>
+                      APPLY FOR SOFT LOAN
+                    </p>
+                  </Link>
+                </div>
               )}
             </div>
-
-            {data?.loan_status === "active" && (
-              <div className='my-8 bg-pink-200 p-4 rounded-xl'>
-                <p className='text-2xl text-pink-700 text-center'>
-                  You are currently on loan
-                </p>
-                <p className='pt-4 text-center'>
-                  Amount borrowed -{" "}
-                  <span className='text-2xl'>{data?.loans?.amount}</span>
-                </p>
-                <p className='text-center'>
-                  Approved on:{" "}
-                  {dayjs(data?.loans?.approved_on).format("MMM DD, YYYY")}
-                </p>
-                <p className='text-center'>Loan lifespan: 3 months</p>
-              </div>
-            )}
-
-            {data?.loan_status === "processing" && (
-              <div className='my-8 py-4 bg-yellow-100 text-yellow-700 p-4 rounded-xl'>
-                <p className=' text-center'>
-                  Your loan application of{" "}
-                  <span className='text-2xl'>{data?.loans?.amount}</span> is
-                  currently being processed. Kindly hold on.
-                </p>
-              </div>
-            )}
-
-            {data?.loan_status === "inactive" && (
-              <div className='py-8 w-full'>
-                <Link href='/soft-loan'>
-                  <p className='w-full text-center p-3 transition-colors duration-500 bg-[#D76F30] hover:bg-[#ab480b] rounded-xl text-white'>
-                    APPLY FOR SOFT LOAN
-                  </p>
-                </Link>
-              </div>
-            )}
           </div>
         ) : (
           <div className='py-8'>

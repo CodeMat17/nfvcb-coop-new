@@ -105,6 +105,9 @@ const Executives = () => {
                 <span className='whitespace-nowrap'>DM me</span>
               </Link>
             </div>
+            <p className='w-full uppercase whitespace-nowrap text-sm text-center text-gray-400'>
+              Relevant Messages only.
+            </p>
           </div>
         ))}
       </div>
