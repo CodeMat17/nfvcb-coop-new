@@ -75,11 +75,11 @@ const Executives = () => {
       <h1 className='text-center font-medium text-4xl md:text-5xl'>
         Coop. Executives
       </h1>
-      <div className='py-8 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 grid-flow-row gap-3 md:gap-6 mt-8'>
+      <div className=' grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 grid-flow-row gap-3 md:gap-6 mt-8'>
         {executives.map((exec) => (
           <div
             key={exec.id}
-            className='flex flex-col items-center justify-center bg-gradient-to-tr from-green-100 to-red-100 rounded-xl overflow-hidden'>
+            className='py-4 w-full flex flex-col items-center justify-center bg-gradient-to-tr from-green-100 to-red-100 rounded-xl overflow-hidden'>
             {exec.img ? (
               <div className='px-4 pt-3 pb-2'>
                 <div className='relative   w-[123px] h-[123px] rounded-full overflow-hidden'>
@@ -93,8 +93,8 @@ const Executives = () => {
             )}
 
             <h1 className='text-2xl text-green-600'>{exec.position}</h1>
-            <p className='text-lg'>{exec.name}</p>
-            <div className='flex items-center justify-center gap-2'>
+            <p className='text-lg text-center w-full'>{exec.name}</p>
+            <div className='w-full flex items-center justify-center gap-2'>
             <Link
               href={`https://wa.me/${exec.tel}`}
               target='_blank'
