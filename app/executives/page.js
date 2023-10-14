@@ -1,7 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa6";
 import { IoMdContact } from "react-icons/io";
-import Link from 'next/link'
 
 const executives = [
   {
@@ -92,16 +92,18 @@ const Executives = () => {
               </div>
             )}
 
-            <h1 className='text-2xl text-center text-green-600'>{exec.position}</h1>
-            <p className='text-lg text-center w-full'>{exec.name}</p>
-            <div className='w-full flex items-center justify-center gap-2'>
-            <Link
-              href={`https://wa.me/${exec.tel}`}
-              target='_blank'
-              className='my-4'>
-              <FaWhatsapp className='text-[#D76F30] text-3xl' />
-            </Link>
-            <p>Chat with me</p>
+            <h1 className='text-2xl text-center text-green-600'>
+              {exec.position}
+            </h1>
+            <p className='text-xl text-center w-full'>{exec.name}</p>
+            <div className='w-full'>
+              <Link
+                href={`https://wa.me/${exec.tel}`}
+                target='_blank'
+                className='my-4 flex items-center justify-center gap-3'>
+                <FaWhatsapp className='text-[#D76F30] text-3xl' />
+                <span>Chat with me</span>
+              </Link>
             </div>
           </div>
         ))}

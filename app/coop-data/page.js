@@ -28,7 +28,7 @@ const DataPage = async () => {
   return (
     <div className='w-full px-4 py-12 min-h-screen'>
       <h1 className='text-2xl text-center font-medium tracking-wider text-[#D76F30]'>
-        Hello,
+        Hello
       </h1>
 
       <div className='max-w-md mx-auto'>
