@@ -92,7 +92,7 @@ const Executives = () => {
               </div>
             )}
 
-            <h1 className='text-2xl text-green-600'>{exec.position}</h1>
+            <h1 className='text-2xl text-center text-green-600'>{exec.position}</h1>
             <p className='text-lg text-center w-full'>{exec.name}</p>
             <div className='w-full flex items-center justify-center gap-2'>
             <Link
