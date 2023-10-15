@@ -27,9 +27,9 @@ const DataPage = async () => {
 
   return (
     <div className='w-full px-4 py-12 min-h-screen'>
-      <h1 className='text-2xl text-center font-medium tracking-wider text-[#D76F30]'>
-        Hello
-      </h1>
+      <div className='flex items-center justify-center text-2xl text-center font-medium tracking-wider text-[#D76F30]'>
+        <p>Hello</p> <p className='animate-waving-hand text-4xl'>👋🏻</p>
+      </div>
 
       <div className='max-w-md mx-auto'>
         {data?.confirmed ? (
