@@ -62,8 +62,6 @@ const LoanCard = () => {
     getProfile();
   }, [getProfile]);
 
-  console.log("ippis no: ", ippis_no);
-  console.log("ippis: ", ippis);
 
   const loanApplication = async () => {
     setErrorMsg(false);

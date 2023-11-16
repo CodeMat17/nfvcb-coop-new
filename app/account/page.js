@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
+
 export const revalidate = 0;
 
 const AccountPage = async () => {

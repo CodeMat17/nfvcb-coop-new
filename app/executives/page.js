@@ -9,47 +9,47 @@ const executives = [
     position: "PRESIDENT",
     name: "Mary Eseoghene",
     tel: 2348035672400,
-    img: "",
+    img: "/execs/president.webp",
   },
   {
     id: 2,
     position: "V. PRESIDENT",
-    name: "Mary Eseoghene",
+    name: "",
     tel: 2348035672400,
     img: "",
   },
   {
     id: 3,
     position: "SEC. GENERAL",
-    name: "Mary Eseoghene",
+    name: "",
     tel: 2348035672400,
     img: "",
   },
   {
     id: 4,
     position: "ASST. SECRETARY",
-    name: "Mary Eseoghene",
+    name: "",
     tel: 2348035672400,
     img: "",
   },
   {
     id: 5,
     position: "FINANCIAL SEC.",
-    name: "Mary Eseoghene",
+    name: "",
     tel: 2348035672400,
     img: "",
   },
   {
     id: 6,
     position: "ASST. FIN. SEC.",
-    name: "Mary Eseoghene",
+    name: "",
     tel: 2348035672400,
     img: "",
   },
   {
     id: 7,
     position: "TREASURER",
-    name: "Mary Eseoghene",
+    name: "",
     tel: 2348035672400,
     img: "",
   },
@@ -82,7 +82,7 @@ const Executives = () => {
             className='py-4 w-full flex flex-col items-center justify-center bg-gradient-to-tr from-green-100 to-red-100 rounded-xl overflow-hidden'>
             {exec.img ? (
               <div className='px-4 pt-3 pb-2'>
-                <div className='relative   w-[123px] h-[123px] rounded-full overflow-hidden'>
+                <div className='relative   w-[150px] aspect-square rounded-full overflow-hidden'>
                   <Image alt='' fill priority src={exec.img} />
                 </div>
               </div>

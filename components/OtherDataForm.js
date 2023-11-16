@@ -1,6 +1,7 @@
 "use client";
 
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { CldImage, CldUploadWidget } from "next-cloudinary";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
@@ -11,6 +12,7 @@ const OtherDataForm = ({ user_id }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [id, setID] = useState(user_id);
+  const [avatarUrl, setAvatarUrl] = useState(null);
   const [username, setUsername] = useState("");
   const [ippis_no, setIPPIS] = useState("");
   const [station, setStation] = useState("");
@@ -50,6 +52,7 @@ const OtherDataForm = ({ user_id }) => {
         let { error: error1 } = await supabase
           .from("profiles")
           .update({
+            avatar: avatarUrl,
             username,
             ippis_no,
             station,
@@ -109,6 +112,49 @@ const OtherDataForm = ({ user_id }) => {
       <Toaster />
       <p className='text-xs text-red-500 text-center'>{errorMsg}</p>
       {/* <pre>{JSON.stringify(user.id, null, 2)}</pre> */}
+
+      <div className='flex items-center justify-center gap-6'>
+        {avatarUrl ? (
+          <div className='relative w-[85px] aspect-square rounded-full overflow-hidden'>
+            <CldImage
+              fill
+              src={avatarUrl}
+              // sizes='50vw'
+              alt='Profile image'
+              loading='lazy'
+            />
+          </div>
+        ) : (
+          <div className='w-[85px] aspect-square rounded-full bg-gray-400'></div>
+        )}
+        <div className=''>
+          <CldUploadWidget
+            uploadPreset='nfvcbcoop'
+            folder='nfvcbcoop_avatars'
+            onSuccess={(result) => {
+              // handle successful upload
+              setAvatarUrl(result.info.public_id);
+              // setPix(result.info.secure_url);
+              // console.log(`result: `, result.info.secure_url);
+            }}>
+            {({ open }) => {
+              function handleOnClick(e) {
+                e.preventDefault();
+                open();
+              }
+              return (
+                <button
+                  onClick={handleOnClick}
+                  className='bg-green-600/10 text-green-600 font-medium text-sm py-2 px-4 rounded-xl'>
+                  Attach
+                  {/* <TbCameraPlus className=' text-4xl text-[#55c694]' /> */}
+                </button>
+              );
+            }}
+          </CldUploadWidget>
+        </div>
+      </div>
+
       <input
         type='text'
         minLength={6}
