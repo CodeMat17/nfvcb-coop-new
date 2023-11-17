@@ -30,7 +30,7 @@ const PaymentPage = async () => {
       <p className='text-center'>Make repayment to the account details below</p>
 
       <div className='flex justify-center pt-12'>
-        <div className='w-full max-w-sm aspect-video rounded-xl px-4 py-2 border bg-gradient-to-tr from-green-600 via-green-400 to-[#93552e] to-90% shadow-md'>
+        <div className='w-full max-w-sm aspect-video rounded-xl px-2 py-2.5 border bg-gradient-to-tr from-green-600 via-green-400 to-[#93552e] to-90% shadow-md'>
           <div className='flex items-center justify-between'>
             <div className='flex items-center gap-2'>
               <div className='relative w-[21px] aspect-square'>
@@ -47,14 +47,14 @@ const PaymentPage = async () => {
             </p>
           </div>
 
-          <div className='flex flex-col items-cente mt-8 mb-2 sm:mt-12 gap-1'>
-            <div className='flex items-center gap-4 bg-green-800/5 rounded-full p-1'>
+          <div className='flex flex-col items-cente mt-8 mb-2 sm:mt-12 gap-1 bg-green-800/5'>
+            <div className='flex items-center gap-3'>
               <div className='rounded-full p-2 bg-green-800/20 text-green-800 shadow'>
                 <PiBankBold className='text-xl' />
               </div>
               <p className=' text-gray-100 drop-shadow-md'>Zenith Bank Plc</p>
             </div>
-            <div className='flex items-center gap-4 bg-green-800/5 rounded-full p-1'>
+            <div className='flex items-center gap-2'>
               <div className='rounded-full p-2 bg-green-800/20 text-green-800 shadow'>
                 <BsPostcard className='text-xl' />
               </div>
@@ -62,7 +62,7 @@ const PaymentPage = async () => {
                 Nat Film and Video Censors Board ST
               </p>
             </div>
-            <div className='flex items-center gap-4 bg-green-800/5 rounded-full p-1'>
+            <div className='flex items-center gap-2'>
               <div className='rounded-full p-2 bg-green-800/20 text-green-800 shadow'>
                 <BsPersonVcard className='text-xl' />
               </div>
