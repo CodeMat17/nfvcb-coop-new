@@ -209,7 +209,7 @@ const LoanCard = () => {
             {waiting ? (
               <div className='flex items-center justify-center space-x-3'>
                 <AiOutlineLoading className='animate-spin font-medium text-2xl' />
-                <span>Please wait</span>
+                <span className='whitespace-nowrap'>Please wait</span>
               </div>
             ) : (
               "Submit Application"

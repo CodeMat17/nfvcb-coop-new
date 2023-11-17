@@ -110,7 +110,7 @@ const Signin = () => {
             {loading ? (
               <div className='flex items-center justify-center gap-x-4'>
                 <AiOutlineLoading className='text-2xl font-medium animate-spin' />{" "}
-                <span>Please wait</span>
+                <span className='whitespace-nowrap'>Please wait</span>
               </div>
             ) : (
               "Sign in"

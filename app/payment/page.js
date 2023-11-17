@@ -42,23 +42,25 @@ const PaymentPage = async () => {
                 <Image alt='coop logo' fill priority src='/logo.png' />
               </div>
             </div>
-            <p className='text-white uppercase drop-shadow-md'>
+            <p className='whitespace-nowrap text-white uppercase drop-shadow-md'>
               Nfvcb Cooperative
             </p>
           </div>
 
           <div className='flex flex-col items-cente mt-8 mb-2 sm:mt-12 gap-1 bg-green-800/5'>
-            <div className='flex items-center gap-3'>
+            <div className='flex items-center gap-2'>
               <div className='rounded-full p-2 bg-green-800/20 text-green-800 shadow'>
                 <PiBankBold className='text-xl' />
               </div>
-              <p className=' text-gray-100 drop-shadow-md'>Zenith Bank Plc</p>
+              <p className='whitespace-nowrap text-gray-100 drop-shadow-md'>
+                Zenith Bank Plc
+              </p>
             </div>
             <div className='flex items-center gap-2'>
               <div className='rounded-full p-2 bg-green-800/20 text-green-800 shadow'>
                 <BsPostcard className='text-xl' />
               </div>
-              <p className='text-gray-100 drop-shadow-md'>
+              <p className='whitespace-nowrap text-gray-100 drop-shadow-md'>
                 Nat Film and Video Censors Board ST
               </p>
             </div>
@@ -66,7 +68,7 @@ const PaymentPage = async () => {
               <div className='rounded-full p-2 bg-green-800/20 text-green-800 shadow'>
                 <BsPersonVcard className='text-xl' />
               </div>
-              <p className='tracking-widest text-gray-100 drop-shadow-2xl'>
+              <p className='whitespace-nowrap tracking-widest text-gray-100 drop-shadow-2xl'>
                 122 9203 111
               </p>
             </div>

@@ -11,11 +11,7 @@ export default function Home() {
         NFVCB Multipurpose Cooperative Society Ltd
       </h1>
       <h2 className="text-xl font font-semibold py-4 tracking-widest">Welcome.</h2>
-      </div>
-
-     
-     
-     
+      </div> 
       <LoginPage />
     </main>
   );

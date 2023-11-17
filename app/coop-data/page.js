@@ -53,7 +53,7 @@ const DataPage = async () => {
                   </div>
                   <div className='flex items-center gap-1 text-gray-600'>
                     <MdOutlineCalendarMonth className='text-[#D76F30]' />
-                    <p>
+                    <p className="whitespace-nowrap">
                       Joined{" "}
                       <span className=''>
                         {dayjs(data?.loans?.joined_on).format("MMM, DD, YYYY")}
@@ -93,34 +93,6 @@ const DataPage = async () => {
                 </div>
               </div>
 
-              {/* <div className='py-4'>
-              <p className='text-lg font-medium'>
-                Total Contributions as at{" "}
-                <span className=''>
-                  {dayjs(data?.loans?.as_at).format("MMM, YYYY")}
-                </span>
-              </p>
-              <div className='flex justify-start relative'>
-                <div className='p-1 shadow-md border rounded-full'>
-                  <div className=' text-xl font-bold tracking-wide px-4 py-2 shadow-md rounded-full bg-[#D76F30]/20 text-[#D76F30]'>
-                    <FormatedCurrency
-                      amount={data?.loans?.total_contributions}
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div className='mt-6'>
-                <p>
-                  Current monthly contribution:
-                  <span className='font-bold'>
-                    <FormatedCurrency
-                      amount={data?.loans?.monthly_contribution}
-                    />
-                  </span>
-                </p>
-              </div>
-            </div> */}
 
               <div className='mt-6 px-4 py-4 bg-white rounded-xl shadow-md'>
                 <div className="">

@@ -79,7 +79,6 @@ const Signup = ({result}) => {
 
   return (
     <>
-
       {/* <GoogleSigninButton /> */}
       {errorMsg && (
         <p className='text-red-500 text-center text-sm'>{errorMsg}</p>
@@ -104,25 +103,23 @@ const Signup = ({result}) => {
           </span>
         </div>
 
-          <div className='relative w-full'>
-            <input
-              type={showPassword ? "text" : "password"}
-              name='password'
-              id='password'
-              required
-              value={password}
-              onChange={handlePasswordChange}
-              pattern='.{6,}'
-              placeholder='Password '
-              className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-full py-2 pl-10 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
-            />
-            <HiMiniLockClosed className='absolute top-3 left-3 text-lg text-green-600' />
-            <span className='hidden text-xs text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block'>
-              Password must be at least 6 chars long
-            </span>
-          </div>
-         
-       
+        <div className='relative w-full'>
+          <input
+            type={showPassword ? "text" : "password"}
+            name='password'
+            id='password'
+            required
+            value={password}
+            onChange={handlePasswordChange}
+            pattern='.{6,}'
+            placeholder='Password '
+            className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-full py-2 pl-10 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
+          />
+          <HiMiniLockClosed className='absolute top-3 left-3 text-lg text-green-600' />
+          <span className='hidden text-xs text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block'>
+            Password must be at least 6 chars long
+          </span>
+        </div>
 
         <div className='flex items-start gap-x-4'>
           <div className='relative w-full'>
@@ -162,7 +159,7 @@ const Signup = ({result}) => {
             {loading ? (
               <div className='flex items-center justify-center gap-x-4'>
                 <AiOutlineLoading className='text-2xl font-medium animate-spin' />{" "}
-                <span>Please wait</span>
+                <span className='whitespace-nowrap'>Please wait</span>
               </div>
             ) : (
               "Sign up"

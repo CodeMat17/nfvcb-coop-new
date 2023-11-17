@@ -14,7 +14,7 @@ const LoginPage = () => {
 
   if (signupDone) {
     return (
-      <div className='px-8 pt-32 min-h-screen flex flex-col items-center'>
+      <div className='px-8 pt-32 flex flex-col items-center'>
         <div className='relative w-64 h-64 rouded-3xl overflow-hidden'>
           <Image alt='' fill priority src='/sent-msg.svg' />
         </div>
@@ -61,7 +61,7 @@ const LoginPage = () => {
             <p className='text-center pt-6'>a new user?</p>
             <button
               onClick={() => setSignUp(!signUp)}
-              className='w-full border border-[#D76F30] text-[#D76F30] px-4 py-2 rounded-full'>
+              className='whitespace-nowrap w-full border border-[#D76F30] text-[#D76F30] px-4 py-2 rounded-full'>
               Sign up
             </button>
           </>

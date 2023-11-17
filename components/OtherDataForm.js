@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { AiOutlineLoading } from "react-icons/ai";
+import { TbPhotoAi } from "react-icons/tb";
 
 const OtherDataForm = ({ user_id }) => {
   const supabase = createClientComponentClient();
@@ -113,7 +114,7 @@ const OtherDataForm = ({ user_id }) => {
       <p className='text-xs text-red-500 text-center'>{errorMsg}</p>
       {/* <pre>{JSON.stringify(user.id, null, 2)}</pre> */}
 
-      <div className='flex items-center justify-center gap-6'>
+      <div className='flex items-center justify-center gap-3'>
         {avatarUrl ? (
           <div className=''>
             <CldImage
@@ -129,7 +130,9 @@ const OtherDataForm = ({ user_id }) => {
             />
           </div>
         ) : (
-          <div className='w-[110px] aspect-square rounded-full bg-gray-400'></div>
+            <div className='flex items-center justify-center w-[110px] aspect-square rounded-full bg-gray-100 border'>
+              <TbPhotoAi className="text-3xl text-green-600"/>
+          </div>
         )}
         <div className=''>
           <CldUploadWidget
@@ -149,8 +152,8 @@ const OtherDataForm = ({ user_id }) => {
               return (
                 <button
                   onClick={handleOnClick}
-                  className='bg-green-600/10 text-green-600 font-medium text-sm py-2 px-4 rounded-xl'>
-                  Attach
+                  className='whitespace-nowrap bg-green-600/10 text-green-600 font-medium text-sm py-2 px-4 rounded-xl'>
+                  Attach your photo
                   {/* <TbCameraPlus className=' text-4xl text-[#55c694]' /> */}
                 </button>
               );

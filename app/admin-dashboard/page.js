@@ -35,7 +35,7 @@ const AdminDashboard = async () => {
 
   const { data: unconfirmed, error: error2 } = await supabaseRole
     .from("profiles")
-    .select("id, username, station, ippis_no, confirmed, phone_no")
+    .select("id, avatar, username, station, ippis_no, confirmed, phone_no")
     .eq("confirmed", false);
 
   if (error2) {
