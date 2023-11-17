@@ -23,7 +23,7 @@ const PaymentPage = async () => {
   //   .single();
 
   return (
-    <div className='px-4 py-12 min-h-screen'>
+    <div className='px-2 py-12 min-h-screen'>
       <h1 className='text-4xl text-[#D76F30] font-medium text-center'>
         LOAN REPAYMENT
       </h1>
@@ -31,7 +31,10 @@ const PaymentPage = async () => {
 
       <div className='flex justify-center pt-12'>
         <div className='w-full max-w-sm aspect-video rounded-xl px-2 py-2.5 border bg-gradient-to-tr from-green-600 via-green-400 to-[#93552e] to-90% shadow-md'>
-          <div className='flex items-center justify-between'>
+          <div className='flex flex-col items-center justify-center gap-'>
+            <p className='whitespace-nowrap text-white uppercase drop-shadow-md'>
+              Nfvcb Cooperative Soceity
+            </p>
             <div className='flex items-center gap-2'>
               <div className='relative w-[21px] aspect-square'>
                 <Image alt='zenith logo' fill priority src='/zenith-logo.png' />
@@ -42,13 +45,10 @@ const PaymentPage = async () => {
                 <Image alt='coop logo' fill priority src='/logo.png' />
               </div>
             </div>
-            <p className='whitespace-nowrap text-white uppercase drop-shadow-md'>
-              Nfvcb Cooperative
-            </p>
           </div>
 
-          <div className='flex flex-col items-cente mt-8 mb-2 sm:mt-12 gap-1 bg-green-800/5'>
-            <div className='flex items-center gap-2'>
+          <div className='flex flex-col items-cente mt-6 mb-2 sm:mt-12 gap-1'>
+            <div className='flex items-center gap-2 bg-green-800/10 px-1 py-0.5 rounded-full'>
               <div className='rounded-full p-2 bg-green-800/20 text-green-800 shadow'>
                 <PiBankBold className='text-xl' />
               </div>
@@ -56,7 +56,7 @@ const PaymentPage = async () => {
                 Zenith Bank Plc
               </p>
             </div>
-            <div className='flex items-center gap-2'>
+            <div className='flex items-center gap-2 bg-green-800/10 px-1 py-0.5 rounded-full'>
               <div className='rounded-full p-2 bg-green-800/20 text-green-800 shadow'>
                 <BsPostcard className='text-xl' />
               </div>
@@ -64,7 +64,7 @@ const PaymentPage = async () => {
                 Nat Film and Video Censors Board ST
               </p>
             </div>
-            <div className='flex items-center gap-2'>
+            <div className='flex items-center gap-2 bg-green-800/10 px-1 py-0.5 rounded-full'>
               <div className='rounded-full p-2 bg-green-800/20 text-green-800 shadow'>
                 <BsPersonVcard className='text-xl' />
               </div>
