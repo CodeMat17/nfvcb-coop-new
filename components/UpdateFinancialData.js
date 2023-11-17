@@ -1,12 +1,14 @@
 "use client";
 
 import { supabaseRole } from "@/app/utils/supabaseService";
+import { CldImage } from "next-cloudinary";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 const UpdateFinancialData = ({
   user_id,
+  user_avatar,
   user_name,
   user_station,
   user_ippis,
@@ -16,6 +18,7 @@ const UpdateFinancialData = ({
 }) => {
   const router = useRouter();
   const [id, setID] = useState(user_id);
+  const [avatar, setAvatar] = useState(user_avatar);
   const [username, setUsername] = useState(user_name);
   const [station, setStation] = useState(user_station);
   const [ippis_no, setIPPIS] = useState(user_ippis);
@@ -89,6 +92,26 @@ const UpdateFinancialData = ({
   return (
     <div className='mt-6 space-y-4 max-w-sm mx-auto'>
       <Toaster />
+      <div className='flex items-center justify-center'>
+        {avatar ? (
+          <div>
+            <CldImage
+              width='100'
+              height='100'
+              crop='thumb'
+              gravity='faces'
+              src={avatar}
+              sizes='50vw'
+              alt='Profile image'
+              loading='lazy'
+              className='rounded-full'
+            />
+          </div>
+        ) : (
+          <p className='text-red-500'>User did not upload a photo.</p>
+        )}
+      </div>
+
       <div>
         <label className='text-sm text-gray-400'>Name</label>
         <input

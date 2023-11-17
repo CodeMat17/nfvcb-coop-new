@@ -10,7 +10,7 @@ const UserDataPage = async ({ params: { id } }) => {
   const { data: profile } = await supabaseRole
     .from("profiles")
     .select(
-      "id, username, station, ippis_no, phone_no, loans(joined_on, monthly_contribution, total_contributions)"
+      "id, avatar, username, station, ippis_no, phone_no, loans(joined_on, monthly_contribution, total_contributions)"
     )
     .match({ id })
     .single();
@@ -27,6 +27,7 @@ const UserDataPage = async ({ params: { id } }) => {
       {/* <pre>{JSON.stringify(profile, null, 2)}</pre> */}
       <UpdateFinancialData
         user_id={profile.id}
+        user_avatar={profile.avatar}
         user_name={profile.username}
         user_station={profile.station}
         user_ippis={profile.ippis_no}
