@@ -39,7 +39,7 @@ const PaymentPage = async () => {
               <div className='relative w-[21px] aspect-square'>
                 <Image alt='zenith logo' fill priority src='/zenith-logo.png' />
               </div>
-              <FaRegHandshake className='text-2xl text-[#D76F30]' />
+              <FaRegHandshake className='text-3xl text-white' />
 
               <div className='pl-4 relative w-[24px] aspect-square'>
                 <Image alt='coop logo' fill priority src='/logo.png' />
