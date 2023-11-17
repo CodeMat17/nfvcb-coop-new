@@ -59,7 +59,7 @@ const UpdateAvatar = ({ id, avatar }) => {
         <button
           type='button'
           onClick={openModal}
-          className='shadow-2xl shadow-gray-500 bg-[#D76F30]/80 p-2 rounded-full'>
+          className='shadow-2xl shadow-gray-500 bg-[#D76F30]/80 p-4 rounded-full'>
           <TbUserEdit className='text-xl text-white' />
         </button>
       </div>
@@ -95,17 +95,21 @@ const UpdateAvatar = ({ id, avatar }) => {
                   </Dialog.Title>
                   <div className='my-4 flex justify-center'>
                     {avatarUrl ? (
-                      <div className='relative w-[96px] aspect-square rounded-full overflow-hidden'>
+                      <div className=''>
                         <CldImage
-                          fill
+                          width='130'
+                          height='130'
+                          crop='thumb'
+                          gravity='faces'
                           src={avatarUrl}
-                          // sizes='50vw'
+                          sizes='50vw'
                           alt='Profile image'
                           loading='lazy'
+                          className='rounded-full'
                         />
                       </div>
                     ) : (
-                      <div className='bg-gray-500 w-[96px] aspect-square rounded-full' />
+                      <div className='bg-gray-500 w-[130px] aspect-square rounded-full' />
                     )}
                   </div>
 

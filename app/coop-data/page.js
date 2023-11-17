@@ -1,12 +1,12 @@
+import AvatarComponent from "@/components/AvatarComponent";
 import FormatedCurrency from "@/components/FormatedCurrency";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import dayjs from "dayjs";
 import { Autour_One } from "next/font/google";
 import { cookies } from "next/headers";
 import Link from "next/link";
-import { MdLocationOn, MdOutlineCalendarMonth } from "react-icons/md";
 import { Toaster } from "react-hot-toast";
-import AvatarComponent from '@/components/AvatarComponent'
+import { MdLocationOn, MdOutlineCalendarMonth } from "react-icons/md";
 
 const autour = Autour_One({ subsets: ["latin"], weight: ["400"] });
 
@@ -40,19 +40,19 @@ const DataPage = async () => {
             <div>
               <div className=' mt-6 pt-2 pb-0.5 px-0.5 bg-gradient-to-tr from-green-600 via-green-600 to-[#D76F30] rounded-xl shadow-lg'>
                 <div className='flex flex-col sm:flex-row items-center justify-center p-4 gap-2 sm:gap-4'>
-                <AvatarComponent id={data?.id} avatar={data?.avatar} />
+                  <AvatarComponent id={data?.id} avatar={data?.avatar} />
                   <p className='text-2xl sm:ml-3 font-medium text-center sm:text-left text-white tracking-wider'>
                     {data?.username}
                   </p>
                 </div>
 
-                <div className='flex gap-5 px-4 py-2 bg-green-50 rounded-xl overflow-hidden mt-1'>
-                  <div className='flex items-center gap-1 text-gray-400'>
-                    <MdLocationOn />
+                <div className='flex gap-5 px-4 py-2 bg-green-50/50 rounded-xl overflow-hidden mt-1'>
+                  <div className='flex items-center gap-1 text-gray-600'>
+                    <MdLocationOn className='text-[#D76F30]' />
                     <p>{data?.station}</p>
                   </div>
-                  <div className='flex items-center gap-1 text-gray-400'>
-                    <MdOutlineCalendarMonth />
+                  <div className='flex items-center gap-1 text-gray-600'>
+                    <MdOutlineCalendarMonth className='text-[#D76F30]' />
                     <p>
                       Joined{" "}
                       <span className=''>
@@ -64,7 +64,7 @@ const DataPage = async () => {
               </div>
 
               <div className='px-4 py-8 flex flex-col sm:flex-row gap-5'>
-                <div className='w-full sm:w-[50%] border border-gray-200 shadow-md p-4 rounded-xl bg-amber-50 text-center'>
+                <div className='w-full sm:w-[50%] border border-gray-200 shadow-md px-4 py-8 rounded-xl bg-amber-50 text-center'>
                   <div className='text-3xl font-bold text-amber-500 tracking-widest'>
                     <FormatedCurrency
                       amount={data?.loans?.monthly_contribution}
@@ -72,7 +72,7 @@ const DataPage = async () => {
                   </div>
                   <p>Current monthly contribution</p>
                 </div>
-                <div className='relative w-full sm:w-[50%] border border-gray-200 shadow-md p-4 rounded-xl bg-green-50 text-center'>
+                <div className='relative w-full sm:w-[50%] border border-gray-200 shadow-md px-4 py-8 rounded-xl bg-green-50 text-center'>
                   <div className='text-3xl font-bold text-green-600 tracking-widest'>
                     <FormatedCurrency
                       amount={data?.loans?.total_contributions}

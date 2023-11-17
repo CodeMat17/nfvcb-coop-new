@@ -10,19 +10,23 @@ const AvatarComponent = ({ id, avatar }) => {
   return (
     <div className='relative'>
       {avatar ? (
-        <div className='relative w-[96px] aspect-square rounded-full overflow-hidden'>
+        <div className=''>
           <CldImage
-            fill
+            width='130'
+            height='130'
+            crop='thumb'
+            gravity="faces"
             src={avatar}
-            // sizes='50vw'
+            sizes='50vw'
             alt='Profile image'
             loading='lazy'
+            className="rounded-full"
           />
         </div>
       ) : (
-        <div className='w-24 aspect-square bg-gray-500 rounded-full '></div>
+        <div className='w-[130px] aspect-square bg-gray-500 rounded-full '></div>
       )}
-      <div className='absolute -right-7 -bottom-2 shadow-2xl px-2 py-1 mt-8 rounded-full'>
+      <div className='absolute -right-10 -bottom-2 shadow-2xl px-2 py-1 mt-8 rounded-full'>
         {id && <UpdateAvatar id={id} avatar={avatar} />}
       </div>
     </div>

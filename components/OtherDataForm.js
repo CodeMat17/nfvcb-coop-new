@@ -115,17 +115,21 @@ const OtherDataForm = ({ user_id }) => {
 
       <div className='flex items-center justify-center gap-6'>
         {avatarUrl ? (
-          <div className='relative w-[85px] aspect-square rounded-full overflow-hidden'>
+          <div className=''>
             <CldImage
-              fill
+              width='110'
+              height='110'
+              crop='thumb'
+              gravity='faces'
               src={avatarUrl}
-              // sizes='50vw'
+              sizes='50vw'
               alt='Profile image'
               loading='lazy'
+              className='rounded-full'
             />
           </div>
         ) : (
-          <div className='w-[85px] aspect-square rounded-full bg-gray-400'></div>
+          <div className='w-[110px] aspect-square rounded-full bg-gray-400'></div>
         )}
         <div className=''>
           <CldUploadWidget
