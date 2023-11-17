@@ -28,17 +28,17 @@ const Footer = async () => {
                 NFVCB Staff Multipurpose Co-operative Society Ltd
               </p>
             </div>
-            <div className='py-12 flex flex-col sm:flex-row sm:justify-center gap-y-3 sm:gap-x-8 '>
-              <div className='w-[134px] group'>
+            <div className='py-12 flex flex-col sm:flex-row sm:justify-center gap-3 sm:gap-8 '>
+              {/* <div className='w-[134px] group'>
                 <Link href='/' className=' flex items-center'>
                   <BiSolidHomeSmile className='text-[#D76F30] text-2xl transition-colors duration-500 ease-in-out group-hover:text-white' />
                   <p className='mt-1 ml-1 text-gray-400 transition-colors duration-500 ease-in-out group-hover:text-white'>
                     Home
                   </p>
                 </Link>
-              </div>
+              </div> */}
 
-              <div className='w-[134px] group'>
+              <div className=' w-[134px] sm:w-auto group'>
                 <Link href='/coop-data' className=' flex items-center'>
                   <AiFillProfile className='text-[#D76F30] text-[23px] transition-colors duration-500 ease-in-out group-hover:text-white' />
                   <p className='mt-1 ml-1 text-gray-400 transition-colors duration-500 ease-in-out group-hover:text-white'>
@@ -47,7 +47,7 @@ const Footer = async () => {
                 </Link>
               </div>
 
-              <div className='w-[134px] group'>
+              <div className=' w-[134px] sm:w-auto group'>
                 <Link href='/payment' className=' flex items-center'>
                   <RiSecurePaymentFill className='text-[#D76F30] text-[26px] transition-colors duration-500 ease-in-out group-hover:text-white' />
                   <p className='mt-1 ml-1 whitespace-nowrap text-gray-400 transition-colors duration-500 ease-in-out group-hover:text-white'>
@@ -56,7 +56,7 @@ const Footer = async () => {
                 </Link>
               </div>
 
-              <div className='w-[134px] group'>
+              <div className=' w-[134px] sm:w-auto group'>
                 <Link href='/executives' className=' flex items-center'>
                   <MdContactPage className='text-[#D76F30] text-2xl transition-colors duration-500 ease-in-out group-hover:text-white' />
                   <p className='mt-1 ml-1 text-gray-400 transition-colors duration-500 ease-in-out group-hover:text-white'>

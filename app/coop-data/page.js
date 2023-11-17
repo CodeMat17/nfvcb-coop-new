@@ -46,14 +46,14 @@ const DataPage = async () => {
                   </p>
                 </div>
 
-                <div className='flex gap-5 px-4 py-2 bg-green-50/50 rounded-xl overflow-hidden mt-1'>
-                  <div className='flex items-center gap-1 text-gray-600'>
+                <div className='flex gap-5 px-4 py-2 bg-[#D76F30]/30 rounded-xl overflow-hidden mt-1'>
+                  <div className='flex items-center gap-1'>
                     <MdLocationOn className='text-[#D76F30]' />
-                    <p>{data?.station}</p>
+                    <p className=' text-gray-300'>{data?.station}</p>
                   </div>
-                  <div className='flex items-center gap-1 text-gray-600'>
+                  <div className='flex items-center gap-1'>
                     <MdOutlineCalendarMonth className='text-[#D76F30]' />
-                    <p className="whitespace-nowrap">
+                    <p className='whitespace-nowrap text-gray-300'>
                       Joined{" "}
                       <span className=''>
                         {dayjs(data?.loans?.joined_on).format("MMM, DD, YYYY")}
@@ -93,9 +93,8 @@ const DataPage = async () => {
                 </div>
               </div>
 
-
               <div className='mt-6 px-4 py-4 bg-white rounded-xl shadow-md'>
-                <div className="">
+                <div className=''>
                   <p className='text-lg font-medium uppercase text-center'>
                     Loan Status:{" "}
                     {data?.loan_status === "active" && (

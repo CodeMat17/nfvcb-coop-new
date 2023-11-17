@@ -2,7 +2,7 @@ import Link from "next/link";
 import SignOut from "./action-buttons/SignoutBtn";
 
 const links = [
-  { href: "/", label: "HOME" },
+  // { href: "/", label: "HOME" },
   { href: "/coop-data", label: "PROFILE" },
   { href: "/payment", label: "REPAY LOAN" },
   { href: "/executives", label: "EXECUTIVES" },

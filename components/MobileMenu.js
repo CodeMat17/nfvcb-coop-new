@@ -4,7 +4,7 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { MdOutlineClose } from "react-icons/md";
 
 const links = [
-  { href: "/", label: "HOME" },
+  // { href: "/", label: "HOME" },
   { href: "/coop-data", label: "PROFILE" },
   { href: "/payment", label: "REPAY LOAN" },
   { href: "/executives", label: "EXECUTIVES" },
