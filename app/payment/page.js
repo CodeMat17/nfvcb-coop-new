@@ -48,13 +48,13 @@ const PaymentPage = async () => {
           </div>
 
           <div className='flex flex-col items-cente mt-8 mb-2 sm:mt-12 gap-1'>
-            <div className='flex items-center gap-4'>
+            <div className='flex items-center gap-4 bg-green-800/5 rounded-full p-1'>
               <div className='rounded-full p-2 bg-green-800/20 text-green-800 shadow'>
                 <PiBankBold className='text-xl' />
               </div>
               <p className=' text-gray-100 drop-shadow-md'>Zenith Bank Plc</p>
             </div>
-            <div className='flex items-center gap-4'>
+            <div className='flex items-center gap-4 bg-green-800/5 rounded-full p-1'>
               <div className='rounded-full p-2 bg-green-800/20 text-green-800 shadow'>
                 <BsPostcard className='text-xl' />
               </div>
@@ -62,7 +62,7 @@ const PaymentPage = async () => {
                 Nat Film and Video Censors Board ST
               </p>
             </div>
-            <div className='flex items-center gap-4'>
+            <div className='flex items-center gap-4 bg-green-800/5 rounded-full p-1'>
               <div className='rounded-full p-2 bg-green-800/20 text-green-800 shadow'>
                 <BsPersonVcard className='text-xl' />
               </div>
