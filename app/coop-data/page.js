@@ -122,8 +122,8 @@ const DataPage = async () => {
               </div>
             </div> */}
 
-              <div className='mt-6 px-4 pt-4 bg-white rounded-xl shadow-md'>
-                <div>
+              <div className='mt-6 px-4 py-4 bg-white rounded-xl shadow-md'>
+                <div className="">
                   <p className='text-lg font-medium uppercase text-center'>
                     Loan Status:{" "}
                     {data?.loan_status === "active" && (
