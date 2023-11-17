@@ -48,27 +48,27 @@ const PaymentPage = async () => {
           </div>
 
           <div className='flex flex-col items-cente mt-6 mb-2 sm:mt-12 gap-1'>
-            <div className='flex items-center gap-2 bg-green-800/10 p-1 rounded-full'>
+            <div className='flex items-center gap-2 bg-green-800/10 p-1.5 rounded-full'>
               <div className='rounded-full p-2 bg-green-800/20 text-green-800 shadow'>
                 <PiBankBold className='text-xl' />
               </div>
-              <p className='whitespace-nowrap text-gray-100 drop-shadow-md'>
+              <p className='text-sm whitespace-nowrap text-gray-100 drop-shadow-md'>
                 Zenith Bank Plc
               </p>
             </div>
-            <div className='flex items-center gap-2 bg-green-800/10 p-1 rounded-full'>
+            <div className='flex items-center gap-2 bg-green-800/10 p-1.5 rounded-full'>
               <div className='rounded-full p-2 bg-green-800/20 text-green-800 shadow'>
                 <BsPostcard className='text-xl' />
               </div>
-              <p className='whitespace-nowrap text-gray-100 drop-shadow-md'>
-                Nat Film and Video Censors Board ST
+              <p className='text-sm whitespace-nowrap text-gray-100 drop-shadow-md'>
+                Nat. Film and Video Censors Board ST.
               </p>
             </div>
-            <div className='flex items-center gap-2 bg-green-800/10 p-1 rounded-full'>
+            <div className='flex items-center gap-2 bg-green-800/10 p-1.5 rounded-full'>
               <div className='rounded-full p-2 bg-green-800/20 text-green-800 shadow'>
                 <BsPersonVcard className='text-xl' />
               </div>
-              <p className='whitespace-nowrap tracking-widest text-gray-100 drop-shadow-2xl'>
+              <p className='text-sm whitespace-nowrap tracking-widest text-gray-100 drop-shadow-2xl'>
                 122 9203 111
               </p>
             </div>
