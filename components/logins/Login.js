@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import Signin from "./Signin";
 import Signup from "./Signup";
+import ResetPassword from "../ResetPassword";
 
 const vibes = Great_Vibes({ subsets: ["latin"], weight: ["400"] });
 
@@ -66,6 +67,12 @@ const LoginPage = () => {
             </button>
           </>
         )}
+
+
+
+        <div className="pt-4 text-center text-sm whitespace-nowrap">
+        <span>Forgot password? </span> <ResetPassword />
+       </div>
       </div>
     </div>
   );

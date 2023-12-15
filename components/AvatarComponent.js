@@ -15,12 +15,12 @@ const AvatarComponent = ({ id, avatar }) => {
             width='130'
             height='130'
             crop='thumb'
-            gravity="faces"
+            gravity='faces'
             src={avatar}
             sizes='50vw'
             alt='Profile image'
             loading='lazy'
-            className="rounded-full"
+            className='rounded-full'
           />
         </div>
       ) : (

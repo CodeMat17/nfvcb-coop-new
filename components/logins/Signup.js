@@ -67,7 +67,7 @@ const Signup = ({result}) => {
           result(true)
         }
       } catch (error) {
-        console.log("Error Msg: ", error);
+        console.log("Error Msg: ", error.message);
       } finally {
         setLoading(false);
       }
