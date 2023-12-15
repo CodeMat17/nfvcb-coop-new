@@ -166,11 +166,11 @@ const ResetPassword = () => {
 
                     {showPassword && (
                       <div className=''>
-                        <label className=''>Password:</label>
+                        <label className=''>New password:</label>
                         <input
                           type='text'
                           value={password}
-                          placeholder='Enter your IPPIS no.'
+                          placeholder='Enter a new password'
                           onChange={(e) => setPassword(e.target.value)}
                           className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-gray-100 w-full border border-white rounded-full text-center py-2 px-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
                         />
