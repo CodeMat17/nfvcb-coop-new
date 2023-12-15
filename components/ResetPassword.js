@@ -1,18 +1,26 @@
 "use client";
 
+import { supabaseRole } from "@/app/utils/supabaseService";
 import { Dialog, Transition } from "@headlessui/react";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { Fragment, useState } from "react";
 
 const ResetPassword = () => {
-  const supabase = createClientComponentClient();
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
+  const [id, setID] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [ippis, setIppis] = useState("");
+  const [ippisNo, setIppisNo] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const [showIPPIS, setShowIPPIS] = useState(false);
+
+  const patternReg = "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$";
 
   const closeModal = () => {
     setIsOpen(false);
@@ -21,32 +29,69 @@ const ResetPassword = () => {
     setIsOpen(true);
   };
 
-  const resetPassword = async (e) => {
-    e.preventDefault();
+  const checkEmail = async () => {
     if (email.match(patternReg)) {
       try {
         setLoading(true);
+        setErrorMsg(null);
 
-        const { error } = await supabase.auth.resetPasswordForEmail(email, {
-          redirectTo: `${location.origin}/auth/reset`,
-        });
+        const { data, error } = await supabaseRole
+          .from("profiles")
+          .select("id, email, ippis_no")
+          .eq("email", email)
+          .single();
 
         if (error) {
-          setErrorMsg(error.message);
-        } else {
-          alert("Password reset email sent. Check your email account.");
-          closeModal();
+          setErrorMsg(`Emaill does not exist: ${error.details}`);
+        }
+        if (data && data.email) {
+          setID(data.id);
+          setIppisNo(data.ippis_no);
+          setShowIPPIS(true);
         }
       } catch (error) {
-        console.log("ErrorMsg: ", error.message);
+        console.log("Error Msg: ", error.message);
       } finally {
         setLoading(false);
       }
     } else {
-      setErrorMsg("Enter a valid email address.");
+      console.log("invalid");
     }
   };
-  const patternReg = "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$";
+
+  const verifyIPPIS = () => {
+    setErrorMsg(null);
+    if (ippis === ippisNo) {
+      setShowPassword(true);
+    } else {
+      setErrorMsg("Wrong IPPIS No.");
+    }
+  };
+
+  const updatePassword = async () => {
+    // const { error } = await supabase.auth.updateUser({ password });  }
+    try {
+      setLoading(true);
+      setErrorMsg(null);
+
+      const { data: user, error } =
+        await supabaseRole.auth.admin.updateUserById(id, {
+          password: password,
+        });
+      if (error) {
+        setErrorMsg(error.details);
+      }
+      if (!error) {
+        alert("Password updated successfully!");
+        closeModal()
+        router.push('/')
+      }
+    } catch (error) {
+      console.log("Error Msg: ", error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -89,21 +134,48 @@ const ResetPassword = () => {
                       {errorMsg}
                     </p>
                   )}
-                  <form onSubmit={resetPassword} className='mt-6 w-full'>
+
+                  <div className='mt-6 w-full flex flex-col gap-3 text-sm'>
                     <div className=''>
-                      <label className=''>Enter email:</label>
+                      <label className=''>Email:</label>
                       <input
                         type='email'
                         value={email}
                         pattern='[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$'
                         placeholder='Enter your emaill address.'
                         onChange={(e) => setEmail(e.target.value)}
-                        className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-gray-100 w-full border border-white rounded-full py-2 pl-10 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
+                        className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-gray-100 w-full border border-white rounded-full text-center py-2 px-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
                       />
                       <span className='hidden text-xs text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block'>
                         Please enter a valid email address
                       </span>
                     </div>
+
+                    {showIPPIS && (
+                      <div className=''>
+                        <label className=''>Ippis no::</label>
+                        <input
+                          type='text'
+                          value={ippis}
+                          placeholder='Enter your IPPIS no.'
+                          onChange={(e) => setIppis(e.target.value)}
+                          className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-gray-100 w-full border border-white rounded-full text-center py-2 px-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
+                        />
+                      </div>
+                    )}
+
+                    {showPassword && (
+                      <div className=''>
+                        <label className=''>Password:</label>
+                        <input
+                          type='text'
+                          value={password}
+                          placeholder='Enter your IPPIS no.'
+                          onChange={(e) => setPassword(e.target.value)}
+                          className='peer invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500 placeholder:italic placeholder:text-slate-400 block bg-gray-100 w-full border border-white rounded-full text-center py-2 px-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm'
+                        />
+                      </div>
+                    )}
 
                     <div className='pt-8 flex items-center justify-between'>
                       <button
@@ -113,14 +185,36 @@ const ResetPassword = () => {
                         Close
                       </button>
 
-                      <button
-                        type='submit'
-                        disabled={loading}
-                        className='inline-flex justify-center rounded-xl border border-transparent bg-blue-100 px-5 py-3 tracking-wider font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'>
-                        {loading ? "Reseting..." : "Reset"}
-                      </button>
+                      <>
+                        {showPassword ? (
+                          <button
+                            onClick={updatePassword}
+                            disabled={loading}
+                            className='inline-flex justify-center rounded-xl border border-transparent bg-blue-100 px-5 py-3 tracking-wider font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'>
+                            {loading ? "Updating..." : "Update password"}
+                          </button>
+                        ) : (
+                          <>
+                            {showIPPIS ? (
+                              <button
+                                onClick={verifyIPPIS}
+                                disabled={loading}
+                                className='inline-flex justify-center rounded-xl border border-transparent bg-blue-100 px-5 py-3 tracking-wider font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'>
+                                {loading ? "Verifying..." : "Verify ippis no"}
+                              </button>
+                            ) : (
+                              <button
+                                onClick={checkEmail}
+                                disabled={loading}
+                                className='inline-flex justify-center rounded-xl border border-transparent bg-blue-100 px-5 py-3 tracking-wider font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2'>
+                                {loading ? "Verifying..." : "Verify"}
+                              </button>
+                            )}{" "}
+                          </>
+                        )}
+                      </>
                     </div>
-                  </form>
+                  </div>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
